@@ -118,8 +118,10 @@ def _contact_parts(lines):
                 parts["EMAIL"] = _AT.search(chunk).group(0)
             elif chunk.lstrip().startswith("+"):
                 parts["PHONE"] = chunk
-            elif re.match(r"^(open to|immediate|available)", chunk, re.I):
-                parts.setdefault("AVAILABILITY", chunk)
+            elif re.match(r"^open to", chunk, re.I):
+                parts["WORK_MODEL"] = chunk
+            elif re.match(r"^(immediate|available)", chunk, re.I):
+                parts["AVAILABILITY"] = chunk
             else:
                 parts["LOCATION"] = chunk
     return parts
@@ -303,8 +305,8 @@ def facts(path) -> dict:
             out["NAME"] = " ".join(match.group(1).split()).title()
             break
 
-    for line in lines[:8]:
-        if "|" in line and not line.isupper():
+    for line in lines[:80]:
+        if "|" in line and not line.isupper() and any(k in line.lower() for k in ("architect", "leader", "engineer", "lead", "developer", "years")):
             out.setdefault("HEADLINE", re.sub(r"\s+", " ", line).strip())
             break
 
@@ -316,13 +318,16 @@ def facts(path) -> dict:
     if avail:
         out["AVAILABILITY"] = "Immediate Joiner" if "joiner" in avail.group(0).lower() else "Available Now"
 
-    model = _MODEL.search(blob)
-    if model:
-        # 'Open to Remote only | Immediate Joiner' -> 'Open to Remote only'
-        wording = re.sub(r"\s+", " ", model.group(1).replace(SEP, " "))
-        wording = _MODEL_TAIL.sub("", wording).strip().strip(".,;")
-        if wording:
-            out["WORK_MODEL"] = "Open to " + wording
+    if contact.get("WORK_MODEL"):
+        out["WORK_MODEL"] = contact["WORK_MODEL"]
+    else:
+        model = _MODEL.search(blob)
+        if model:
+            # 'Open to Remote only | Immediate Joiner' -> 'Open to Remote only'
+            wording = re.sub(r"\s+", " ", model.group(1).replace(SEP, " "))
+            wording = _MODEL_TAIL.sub("", wording).strip().strip(".,;")
+            if wording:
+                out["WORK_MODEL"] = "Open to " + wording
 
     education = _section(lines, "EDUCATION & CERTIFICATIONS")
     joined = "\n".join(education)

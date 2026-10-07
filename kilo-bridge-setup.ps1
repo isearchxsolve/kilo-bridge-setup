@@ -291,7 +291,7 @@ try {
     # External CLI errors should be captured and reported through the exit code,
     # not converted into a terminating PowerShell NativeCommandError.
     $ErrorActionPreference = 'Continue'
-    & $OpenCode @AgentArgs 2>&1 | Tee-Object -FilePath $RunOutput -Append | ForEach-Object {
+    $null | & $OpenCode @AgentArgs 2>&1 | Tee-Object -FilePath $RunOutput -Append | ForEach-Object {
         Write-Host $_
         Add-Content -LiteralPath $RunLog -Value $_ -Encoding UTF8
     }
@@ -365,7 +365,9 @@ if (Test-Path -LiteralPath $LedgerPath) {
         # application is unproven and must not count toward the green verdict.
         if ($Receipt -and $Receipt -ne '-' -and $Receipt -notmatch '^https?://') {
             $ReceiptFull = ''
-            try { $ReceiptFull = [IO.Path]::GetFullPath((Join-Path $Root $Receipt)) } catch { $ReceiptFull = '' }
+            try {
+                $ReceiptFull = if ([IO.Path]::IsPathRooted($Receipt)) { [IO.Path]::GetFullPath($Receipt) } else { [IO.Path]::GetFullPath((Join-Path $Root $Receipt)) }
+            } catch { $ReceiptFull = '' }
             if ($ReceiptFull -and
                 $ReceiptFull.StartsWith($StringEvidencePrefix, [StringComparison]::OrdinalIgnoreCase) -and
                 (Test-Path -LiteralPath $ReceiptFull)) {

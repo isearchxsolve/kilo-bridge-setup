@@ -9,23 +9,30 @@ sys.path.insert(0, str(HERE))
 import lane_tools as T  # noqa: E402
 from lane_jobs import SKILLS  # noqa: E402
 
-SEARCHES = [
-    ("indeed", "https://in.indeed.com/jobs?" + urlencode({"q": "Generative AI Architect", "l": "Remote"})),
-    ("linkedin", "https://www.linkedin.com/jobs/search/?" + urlencode({"keywords": "Generative AI Architect", "location": "India"})),
-]
+def get_searches():
+    queries = T.candidate_search_queries()
+    top_q = queries[0] if queries else "Generative AI Architect"
+    is_remote = T.is_remote_preferred()
+    loc = "Remote" if is_remote else (T.candidate_resident_city() or "India")
+    linkedin_q = f"{top_q} Remote" if is_remote else top_q
+    return [
+        ("indeed", "https://in.indeed.com/jobs?" + urlencode({"q": top_q, "l": loc})),
+        ("linkedin", "https://www.linkedin.com/jobs/search/?" + urlencode({"keywords": linkedin_q, "location": "India"})),
+    ]
 
 
 def main():
+    searches = get_searches()
     failed = []
     if len(SKILLS) < 2:
-        for portal, _ in SEARCHES:
+        for portal, _ in searches:
             lane = T.Lane(portal, "live job search")
             lane.row("-", "-", "-", "-", "candidate skill config", T.BLOCKED,
                      "none", "configure at least two candidate-verified skills before matching")
         print("MARKET-LANES: RED candidate skill configuration required", flush=True)
         return 2
     with T.session(T.Lane("market", "Indeed + LinkedIn live search")) as c:
-        for portal, url in SEARCHES:
+        for portal, url in searches:
             lane = T.Lane(portal, "live job search")
             print("\n%s: navigate -> %s" % (portal, url), flush=True)
             c.call_tool("browser_navigate", {"url": url})
@@ -74,13 +81,13 @@ def main():
                 if not title or title in unique:
                     continue
                 unique.add(title)
-                score, hits = T.score_card(card.get("text"), SKILLS)
+                passes, reason, score, hits = T.card_filter_gate(card)
                 company = T.card_company(card)
-                status = T.MATCHED if score >= 2 else T.NO_MATCH
-                passed += score >= 2
+                status = T.MATCHED if passes else T.NO_MATCH
+                passed += 1 if passes else 0
                 lane.row((card.get("href") or url)[:70], title[:78], company, score,
                          "search result %d skill gate" % i, status,
-                         str(shot), "hits=" + ",".join(hits[:8]))
+                         str(shot), reason[:100])
             if not unique:
                 lane.row(url[:70], "-", "-", "-", "score results", T.BLOCKED,
                          str(shot), "search cards yielded no titles")

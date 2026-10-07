@@ -17,7 +17,7 @@ sys.path.insert(0, str(HERE))
 import lane_tools as T  # noqa: E402
 
 FOUNDIT_HOME = "https://www.foundit.in/"
-DEFAULT_QUERY = "artificial intelligence"
+DEFAULT_QUERY = (T.candidate_search_queries() or ["Generative AI Architect"])[0]
 
 SKILLS = T.candidate_skills()
 
@@ -96,16 +96,15 @@ def main(argv):
             if not title or title in seen:
                 continue
             seen.add(title)
-            score, hits = T.score_card(cd.get("text"), SKILLS)
+            passes, reason, score, hits = T.card_filter_gate(cd)
             company = T.card_company(cd)
-            gate = score >= 2
-            passed += 1 if gate else 0
+            passed += 1 if passes else 0
             lane.log("   [%02d] score=%-2d %-4s %s"
-                     % (i, score, "PASS" if gate else "skip", title[:78]))
+                     % (i, score, "PASS" if passes else "skip", title[:78]))
             lane.row((cd.get("href") or search_url)[:70], title[:78], company, score,
                      "jobcard %d read+gated" % i,
-                     T.MATCHED if gate else T.NO_MATCH,
-                     str(p) if p else "(none)", "hits=" + ",".join(hits[:8]))
+                     T.MATCHED if passes else T.NO_MATCH,
+                     str(p) if p else "(none)", reason[:100])
 
         lane.log("C4 evaluated=%d  gate-passed=%d" % (min(len(seen), 25), passed))
         if passed == 0 and seen:

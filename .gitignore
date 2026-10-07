@@ -19,3 +19,6 @@ __pycache__/
 
 # Extracted resume text is private candidate data, derived from the pinned PDF.
 .runtime/
+
+evidence/employment-lane/*.previous
+evidence/employment-lane/daemon.log
