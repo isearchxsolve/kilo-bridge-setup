@@ -582,6 +582,11 @@ def answer_from_resume(question):
             return notice
         return "Immediate Joiner"
 
+    if any(term in q for term in ("spend 4", "spend 5", "hours daily", "hours a day", "hours per day", "daily hours", "part time", "freelance")):
+        avail = facts.get("AVAILABILITY")
+        if avail and "available" in avail.lower():
+            return "Yes"
+
     # Background verification & documentation checks
     if any(term in q for term in ("bank statement", "salary credit", "background verification", "background check", "bgv", "documentation")):
         return "Yes"
@@ -662,7 +667,7 @@ def nemotron_synthesize_answer(question: str, facts: dict | None = None) -> str 
         f"- Location: {cand_loc}.\n"
         f"- Work Model Preference: {cand_wm}.\n"
         f"- Relocation: {'No (candidate preference is Remote only; does NOT relocate)' if is_remote else 'Derived strictly from facts'}.\n"
-        f"- Availability / Notice period: {facts.get('AVAILABILITY', 'Immediate Joiner')}.\n"
+        f"- Availability / Notice period: {facts.get('AVAILABILITY', 'Immediate Joiner')} (the candidate is available now to work and can commit to daily working hours, including 4-5 hours daily or part-time/freelance).\n"
         "- Career break: No (currently active/available).\n"
         "- Real-world tech boundaries: Model Context Protocol (MCP) was released late 2024 (max experience is 1 year). Generative AI / LLMs / RAG boomed late 2022 (max experience is 2 years). AI/ML, Machine Learning, Python, AWS: 8 years. Total career / overall software architecture is 22 years.\n"
         "- If the question asks for years of experience, answer with ONLY an integer number.\n"
