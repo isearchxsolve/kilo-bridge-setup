@@ -1,0 +1,3 @@
+﻿FOREGROUND_BEFORE: 'Windows PowerShell'
+WIN pid=13700 iconic=False visible=True title='Profile | Mynaukri - Google Chrome'
+AFTER_ACTIVATE pid=13700 foreground_now='Profile | Mynaukri - Google Chrome'

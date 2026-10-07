@@ -1,0 +1,6 @@
+[22:22:02] TOKEN_PATH=D:\anonym\war-log\sweep-browser.token
+[22:22:02] current token = {'pid': 11204, 'since': '2026-10-06T15:50:56Z'}
+[22:22:02] pid_alive(11204) = False
+[22:22:02] mtime_age = 3665.8s   TOKEN_STALE_S = 120
+[22:22:02] pid_alive(self=22200) = True
+[22:22:02] calling _acquire_browser_token(wait_seconds=8) ...

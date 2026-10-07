@@ -1,0 +1,87 @@
+﻿[2026-10-06T23:00:46.6237392+05:30] lane_jobs.py start
+B1 navigate -> https://www.naukri.com/mnjuser/recommendedjobs
+   url   = https://www.naukri.com/mnjuser/recommendedjobs
+   chars = 30059
+B2 milestone screenshot
+   shot -> D:\anonym\delivery\kilo-bridge-setup\evidence\employment-lane\40-naukri-recommended-20261006-230111.png
+B3 parsing job cards ...
+   unique cards: 59
+   [01] score=10 PASS match=-    GenAI Architect | Generative AI | LLM | RAG | Agentic AI
+        keyskills: agentic, architect, aws, cloud, genai, generative ai, langchain, llm, rag
+  LEDGER + MATCHED :: jobcard 1 read+gated
+   [02] score=1  skip match=-    G5 G6 IT Manager Supply Chain Engineering
+        keyskills: java
+  LEDGER + NO_MATCH :: jobcard 2 read+gated
+   [03] score=3  PASS match=-    Core Gen AI / Generative AI Architect- Healthcare
+        keyskills: agentic, architect, generative ai
+  LEDGER + MATCHED :: jobcard 3 read+gated
+   [04] score=3  PASS match=-    Senior AI Architect
+        keyskills: agentic, architect, genai
+  LEDGER + MATCHED :: jobcard 4 read+gated
+   [05] score=3  PASS match=-    Enterprise Multi-Solution Architect
+        keyskills: architect, git, solution architect
+  LEDGER + MATCHED :: jobcard 5 read+gated
+   [06] score=7  PASS match=-    Architect/Lead AI Engineer (Agentic AI)
+        keyskills: agentic, architect, backend, java, langchain, llm, python
+  LEDGER + MATCHED :: jobcard 6 read+gated
+   [07] score=7  PASS match=-    Solution Architect AI Native SDLC Platform
+        keyskills: agentic, architect, aws, cloud, devops, generative ai, solution architect
+  LEDGER + MATCHED :: jobcard 7 read+gated
+   [08] score=3  PASS match=-    Databricks Solution & AI Architect
+        keyskills: architect, cloud, solution architect
+  LEDGER + MATCHED :: jobcard 8 read+gated
+   [09] score=4  PASS match=-    Senior Manager AI/ML Engineering
+        keyskills: agentic, generative ai, llm, python
+  LEDGER + MATCHED :: jobcard 9 read+gated
+   [10] score=6  PASS match=-    Artificial Intelligence Architect_PAN India_October
+        keyskills: agentic, architect, java, llm, python, sql
+  LEDGER + MATCHED :: jobcard 10 read+gated
+   [11] score=8  PASS match=-    Principal AI Platform & Knowledge Architect
+        keyskills: agentic, architect, cloud, generative ai, git, llm, principal, prompt
+  LEDGER + MATCHED :: jobcard 11 read+gated
+   [12] score=6  PASS match=-    GEN AI Architect
+        keyskills: agentic, architect, generative ai, langchain, python, vector
+  LEDGER + MATCHED :: jobcard 12 read+gated
+   [13] score=5  PASS match=-    AI Architect/ Tech Lead
+        keyskills: architect, genai, llm, prompt, rag
+  LEDGER + MATCHED :: jobcard 13 read+gated
+   [14] score=3  PASS match=-    Director
+        keyskills: architect, aws, cloud
+  LEDGER + MATCHED :: jobcard 14 read+gated
+   [15] score=4  PASS match=-    Principal Technology Architect
+        keyskills: api, architect, aws, principal
+  LEDGER + MATCHED :: jobcard 15 read+gated
+   [16] score=5  PASS match=-    Gen AI - Technical Architect
+        keyskills: agentic, architect, generative ai, llm, rag
+  LEDGER + MATCHED :: jobcard 16 read+gated
+   [17] score=4  PASS match=-    Senior Artificial Intelligence Engineer
+        keyskills: api, cloud, generative ai, python
+  LEDGER + MATCHED :: jobcard 17 read+gated
+   [18] score=0  skip match=-    Programme Manager
+        keyskills: none
+  LEDGER + NO_MATCH :: jobcard 18 read+gated
+   [19] score=3  PASS match=-    Application Service Delivery Manager
+        keyskills: git, java, rest
+  LEDGER + MATCHED :: jobcard 19 read+gated
+   [20] score=4  PASS match=-    Urgent Opening For AI Architect- Noida
+        keyskills: agentic, architect, llm, rag
+  LEDGER + MATCHED :: jobcard 20 read+gated
+   [21] score=2  PASS match=-    Senior Engineering Manager
+        keyskills: engineering manager, technical lead
+  LEDGER + MATCHED :: jobcard 21 read+gated
+   [22] score=0  skip match=-    Delivery Manager
+        keyskills: none
+  LEDGER + NO_MATCH :: jobcard 22 read+gated
+   [23] score=3  PASS match=-    Principal Data Scientist
+        keyskills: generative ai, llm, principal
+  LEDGER + MATCHED :: jobcard 23 read+gated
+   [24] score=9  PASS match=-    PRINCIPAL ARCHITECT - Java
+        keyskills: api, architect, java, llm, microservice, principal, rag, spring, vector
+  LEDGER + MATCHED :: jobcard 24 read+gated
+   [25] score=5  PASS match=-    AI Architect
+        keyskills: architect, langchain, principal, rag, vector
+  LEDGER + MATCHED :: jobcard 25 read+gated
+B4 summary
+   evaluated=25  gate-passed=22
+client closed cleanly
+[2026-10-06T23:01:12.3264641+05:30] exit=0

@@ -1,0 +1,21 @@
+# Per-candidate private data: keep only the example templates in Git.
+# The PINNED FACT SOURCE is the candidate own resume PDF. The JSON is pointers only:
+# it names that PDF and its SHA256, and holds no personal value.
+candidate-profile.json
+candidate-answers.txt
+candidate-resume.pdf
+*.candidate.pdf
+scripts/apply_answers.txt
+kilo_apply_resume.pdf
+
+# Build/runtime artifacts and downloaded dependencies: not source.
+venv/
+.opencode/node_modules/
+node_modules/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Extracted resume text is private candidate data, derived from the pinned PDF.
+.runtime/

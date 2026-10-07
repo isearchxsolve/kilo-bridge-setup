@@ -1,0 +1,19 @@
+﻿[2026-10-07T18:02:40] Agent mission started; launcher preflight passed.
+[0m
+> employment-mission · nvidia/nemotron-3-nano-omni-30b-a3b-reasoning
+[0m
+[0m⚙ [0mbrowser-mcp_browser_list_tabs Unknown
+[0m⚙ [0mbrowser-mcp_browser_navigate {"url":"https://www.naukri.com/mnjuser/profile","new_tab":false}
+[0m⚙ [0mbrowser-mcp_browser_list_tabs Unknown
+[0m⚙ [0mbrowser-mcp_browser_switch_tab {"tab_id":826636927}
+[0m⚙ [0mbrowser-mcp_browser_screenshot {"path":"evidence/employment-lane/2026-10-07_12-34-56.png"}
+[0m⚙ [0mbrowser-mcp_browser_get_page_content {"format":"text"}
+[0m→ [0mRead evidence/employment-lane/ledger.tsv[90m [limit=2000][0m
+[0m→ [0mRead evidence/employment-lane/ledger.tsv[90m [limit=2000][0m
+[0m✗ [0mWrite  failed
+[91m[1mError: [0mThe write tool was called with invalid arguments: SchemaError(Missing key
+  at ["filePath"]).
+Please rewrite the input so it satisfies the expected schema.
+[0m→ [0mRead docs/EMPLOYMENT-LANE-MISSION.md
+[0m→ [0mRead evidence/employment-lane/ledger.tsv[90m [limit=2000][0m
+[2026-10-07T18:43:16] Agent mission ended; exitcode=-1

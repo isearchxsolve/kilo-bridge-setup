@@ -1,0 +1,9 @@
+﻿opencode.exe : [0m
+At line:1 char:1
++ & 'C:\Users\Admin\AppData\Local\hermes\node\node_modules\opencode-ai\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([0m:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> build ┬╖ z-ai/glm-5.3-flash
+[0m

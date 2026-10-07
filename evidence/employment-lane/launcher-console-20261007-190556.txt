@@ -1,0 +1,83 @@
+Kilo Bridge standalone employment agent launcher
+Package root: C:\Users\Admin\Downloads\kilo-bridge-setup
+[ OK ] Python 3.11 (C:\Users\Admin\Downloads\kilo-bridge-setup\venv\Scripts\python.exe)
+[ OK ] Node v22.23.2
+[ OK ] Agent360 MCP: C:\Users\Admin\AppData\Local\hermes\node\node_modules\@agent360\browser-mcp\index.js
+
+[ OK ] Candidate facts read from the pinned resume (C:/Users/Admin/Downloads/Resume.pdf):
+  NAME                   CONFIRMED (value withheld)
+  PHONE                  CONFIRMED (value withheld)
+  PHONE_COUNTRY_CODE     CONFIRMED (value withheld)
+  EMAIL                  CONFIRMED (value withheld)
+  LOCATION               CONFIRMED (value withheld)
+  YEARS_EXPERIENCE       CONFIRMED (value withheld)
+  AVAILABILITY           CONFIRMED (value withheld)
+  WORK_MODEL             CONFIRMED (value withheld)
+  EDUCATION_DEGREE       CONFIRMED (value withheld)
+  EDUCATION_INSTITUTE    CONFIRMED (value withheld)
+  EDUCATION_YEAR         CONFIRMED (value withheld)
+  SKILLS                 CONFIRMED (value withheld)
+  EMPLOYERS              CONFIRMED (value withheld)
+
+[ OK ] Resume hash verified; 86 verified skills
+[ OK ] Project-local OpenCode agent policy resolved; browser tool permissions verified.
+
+Launching OpenCode mission agent with nvidia/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning (no deterministic/live lane test loop will run).
+Agent CLI: C:\Users\Admin\AppData\Local\hermes\node\node_modules\opencode-ai\bin\opencode.exe
+Mission receipts: C:\Users\Admin\Downloads\kilo-bridge-setup\evidence\employment-lane
+Agent log: C:\Users\Admin\Downloads\kilo-bridge-setup\evidence\employment-lane\mission-agent-run.log
+[0m
+> employment-mission · nvidia/nemotron-3-nano-omni-30b-a3b-reasoning
+[0m
+[0m⚙ [0mbrowser-mcp_browser_list_tabs Unknown
+[0m⚙ [0mbrowser-mcp_browser_navigate {"new_tab":false,"url":"https://www.naukri.com/mnjuser/profile"}
+[0m⚙ [0mbrowser-mcp_browser_list_tabs Unknown
+[0m⚙ [0mbrowser-mcp_browser_switch_tab {"tab_id":826637003}
+[0m⚙ [0mbrowser-mcp_browser_screenshot {"path":"evidence/employment-lane/2026-10-07_123456.png"}
+[0m⚙ [0mbrowser-mcp_browser_get_page_content {"format":"text"}
+[0m
+[0m$ [0m& "C:\Users\Admin\Downloads\kilo-bridge-setup\venv\Scripts\python.exe" "C:/Users/Admin/Downloads/Resume.pdf"
+File "C:\Users\Admin\Downloads\Resume.pdf", line 2
+    %��
+      ^
+SyntaxError: invalid character '�' (U+00B6)
+[0m
+[0m$ [0mdir /b "C:\Users\Admin\Downloads\kilo-bridge-setup\scripts"
+dir : Cannot find path 'C:\b' because it does not exist.
+At line:1 char:1
++ dir /b "C:\Users\Admin\Downloads\kilo-bridge-setup\scripts"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\b:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+[0m
+[0m$ [0mdir /b "C:\Users\Admin\Downloads\kilo-bridge-setup\scripts"
+dir : Cannot find path 'C:\b' because it does not exist.
+At line:1 char:1
++ dir /b "C:\Users\Admin\Downloads\kilo-bridge-setup\scripts"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\b:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+[0m
+[0m$ [0mdir /b "C:\Users\Admin\Downloads\kilo-bridge-setup"
+dir : Cannot find path 'C:\b' because it does not exist.
+At line:1 char:1
++ dir /b "C:\Users\Admin\Downloads\kilo-bridge-setup"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\b:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+[0m
+[0m$ [0mcd 'C:\Users\Admin\Downloads\kilo-bridge-setup'
+(no output)
+[0m
+Now we are in the kilo-bridge-setup directory. Let's verify with `pwd` (maybe `Get-Location`).
+
+But we can't see output; maybe the command succeeded silently. Let's try to list files to see if we are in the right place.
+
+`dir /b` should list files in current directory.
+
+Let's try:
+
+`dir /b`
+
+MISSION-AGENT-VERDICT: NO FRESH LEDGER RECEIPT
+[FAIL] No new ledger row was written during this run. The agent narrative is not completion proof.

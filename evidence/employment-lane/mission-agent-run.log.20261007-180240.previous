@@ -1,0 +1,25 @@
+﻿[2026-10-07T17:55:53] Agent mission started; launcher preflight passed.
+[0m
+> employment-mission · nvidia/nemotron-3-nano-omni-30b-a3b-reasoning
+[0m
+[0m⚙ [0mbrowser-mcp_browser_navigate {"url":"https://www.naukri.com/mnjuser/profile","eget_vindue":false,"new_tab":true}
+[0m⚙ [0mbrowser-mcp_browser_screenshot {"path":"evidence/employment-lane/2026-10-07_001.png"}
+[0m⚙ [0mbrowser-mcp_browser_get_page_content {"format":"text"}
+[0m
+[0m$ [0mvenv\Scripts\python.exe scripts\resume_facts.py C:/Users/Admin/Downloads/Resume.pdf
+NAME                   Kunal Das
+  PHONE                  8617216163
+  PHONE_COUNTRY_CODE     +91
+  EMAIL                  isearch.xsolve@gmail.com
+  LOCATION               Kolkata, India
+  YEARS_EXPERIENCE       22
+  AVAILABILITY           Immediate Joiner
+  WORK_MODEL             Open to Remote only
+  EDUCATION_DEGREE       B.Tech. — Electrical Engineering
+  EDUCATION_INSTITUTE    National Institute of Technology, Silchar (NIT Silchar) Formerly REC
+  EDUCATION_YEAR         2003
+  SKILLS                 86 confirmed
+  EMPLOYERS              5 found
+[0m
+[0m⚙ [0mbrowser-mcp_browser_click {"selector":"editOneTheme"}
+[0m⚙ [0mbrowser-mcp_browser_click {"selector":"text=9830739230"}

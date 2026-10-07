@@ -1,0 +1,17 @@
+[22:27:14] BEGIN
+[22:27:14] cwd=D:\anonym\delivery\kilo-bridge-setup pid=4460
+[22:27:14] token before = absent
+[22:27:14] import agent360_client ...
+[22:27:14] import OK  TOKEN_PATH=D:\anonym\war-log\sweep-browser.token
+[22:27:14] GATE=http://127.0.0.1:7880
+[22:27:14] constructing client ...
+[22:27:14] constructed
+[22:27:14] start() -- suspected hang point
+[22:27:22] start() RETURNED in 7.7s gate_ticket=None file_tok=True
+[22:27:22] browser_screenshot ...
+[22:27:44] screenshot RETURNED in 22.1s type=dict
+[22:27:44] browser_execute_script document.title ...
+[22:27:44] exec_script RETURNED in 0.0s -> {'content': [{'type': 'text', 'text': '{\n  "result": "",\n  "method": "debugger"\n}'}]}
+[22:27:44] close() ...
+[22:27:44] close() RETURNED in 0.0s
+[22:27:44] END-REACHED

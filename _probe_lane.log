@@ -1,0 +1,13 @@
+﻿=== bounded lane probe 2026-10-06T22:16:05.4456238+05:30 ===
+[22:16:06] BEGIN
+[22:16:06] cwd=D:\anonym\delivery\kilo-bridge-setup
+[22:16:06] pid=21256
+[22:16:06] token before = EXISTS
+[22:16:06] importing agent360_client from D:\anonym\war-log ...
+[22:16:06] import OK  TOKEN_PATH=D:\anonym\war-log\sweep-browser.token
+[22:16:06] constructing client ...
+[22:16:06] constructed
+[22:16:06] calling start() -- THIS is the suspected hang point ...
+
+--- TIMEOUT 180s ---
+=== done 2026-10-06T22:19:20.1956899+05:30 ===

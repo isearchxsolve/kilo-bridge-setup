@@ -1,0 +1,7 @@
+﻿[2026-10-06 22:31:16] === EMPLOYMENT LANE START (Super-120B) ===
+[2026-10-06 22:31:16] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-06 22:31:16] token absent (clean start)
+[2026-10-06 22:31:16] mission present: 2532 bytes
+[2026-10-06 22:31:16] invoking crush run (Super-120B) ...
+[2026-10-06 22:33:20] crush exited after 124s  exitcode=0
+[2026-10-06 22:33:20] === EMPLOYMENT LANE WINDOW DONE ===

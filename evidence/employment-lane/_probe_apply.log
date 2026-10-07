@@ -1,0 +1,6 @@
+CHECK: clicked-check
+APPLY-STATE: {"applyDisabled":"no-btn","applyCls":""}
+APPLY-CLICK: nobtn
+href: https://www.naukri.com/mnjuser/recommendedjobs
+body_chars: 31862  has_applyflow: False
+  MARKER: notice period

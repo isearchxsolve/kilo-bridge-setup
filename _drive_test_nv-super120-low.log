@@ -1,0 +1,7 @@
+﻿=== nv-super120-low  model=nvidiafree/nvidia/nemotron-3-super-120b-a12b 2026-10-06T22:38:17.4228679+05:30 ===
+          
+   ERROR  
+          
+  Model "nvidia/nemotron-3-super-120b-a12b" does not support reasoning effort.                                        
+System.Management.Automation.RemoteException
+=== exit=1 after 4s ===

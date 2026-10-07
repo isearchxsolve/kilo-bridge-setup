@@ -1,0 +1,14 @@
+﻿opencode.exe : [0m
+At line:1 char:1
++ & 'C:\Users\Admin\AppData\Local\hermes\node\node_modules\opencode-ai\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([0m:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> build ┬╖ nvidia/nemotron-3-super-120b-a12b
+[0m
+[0m$ [0m& C:\Users\Admin\Downloads\kilo-bridge-setup\venv\Scripts\python.exe 
+C:\Users\Admin\Downloads\kilo-bridge-setup\scripts\lane_ledger.py --count
+357
+[0m
+357

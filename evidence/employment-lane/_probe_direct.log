@@ -1,0 +1,13 @@
+BROWSER-TOKEN DROP pid 18032 (dead pid)
+URL: https://www.naukri.com/job-details-[ACCOUNT]
+  -> landed: https://www.naukri.com/job-details-[ACCOUNT]
+  -> has_apply_word: False  body_chars: 265
+  -> recruiter_q: False  years_exp: False
+  -> head: Error 404! Page not found... | Sorry, it appears the page you were looking for doesn't exist anymore or might have been moved. | The site administrator has been notified. | Try one of these | Home Page | Return
+---
+URL: https://www.naukri.com/job-apply-[ACCOUNT]
+  -> landed: https://www.naukri.com/mnjuser/homepage
+  -> has_apply_word: True  body_chars: 6080
+  -> recruiter_q: True  years_exp: False
+  -> head: Jobs | 2 | Companies | Services | 1 | Search jobs here | 15 | 2 | 100% | KUNAL DAS | Director & CTO | @ [ORG] |  | Last updated yesterday |  | View profile | Profile performance | Search appearances | 1089 | Recruiter actions | 39 |  | Upto 3
+---

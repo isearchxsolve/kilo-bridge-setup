@@ -1,0 +1,11 @@
+﻿=== groq-oss120b  model=groq/openai/gpt-oss-120b 2026-10-06T22:36:18.0838378+05:30 ===
+
+          
+   ERROR  
+          
+  Agent processing failed: failed to start agent processing stream: request entity too large: Request too large for   
+  model `openai/gpt-oss-120b` in organization `org_01j7e8s8ebfjdamzyc59sgar8k` service tier `on_demand` on tokens per 
+  minute (TPM): Limit 8000, Requested 111464, please reduce your message size and try again. Need more tokens? Upgrade
+  to Dev Tier today at https://console.groq.com/settings/billing.                                                     
+System.Management.Automation.RemoteException
+=== exit=1 after 4s ===

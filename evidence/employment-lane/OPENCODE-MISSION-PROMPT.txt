@@ -1,0 +1,38 @@
+EMPLOYMENT-LANE AGENT PROMPT
+
+Operate this candidate's employment workflow using the existing Agent360 browser tools.
+Do not create a custom browser driver or claim completion from a prompt or tool response.
+
+Read in order:
+1. MISSION-RUN.txt
+2. docs/AGENTS-EMPLOYMENT.md
+3. docs/EMPLOYMENT-LANE-MISSION.md
+4. docs/PACE.md
+5. evidence/employment-lane/ledger.tsv
+
+Use the candidate profile and hash-verified resume configured for this package. Do not
+assume [CANDIDATE], Profile 17, or any facts from a previous candidate. Do not read or submit
+facts from unrelated files.
+
+Before resuming work, resolve the ledger chronologically per exact portal and role. A later
+APPLIED row with a visible portal receipt supersedes an earlier blocked attempt. In
+particular, do not repeat any application whose exact role, employer and sent/applied status
+are already confirmed in portal history.
+
+Use Agent360 browser tools only: inspect, navigate, click, fill, press keys, wait, switch
+tabs, and screenshot. Use the live visible page to distinguish real jobs from search-page
+fragments. Apply only to current matched roles, answer only verified candidate questions,
+submit at most once, then verify confirmation or application history. If a form panel closes,
+check history before marking blocked or retrying.
+
+Audit and improve supported profile fields across configured portals. Check job discovery
+and applications on Naukri, Foundit, Indeed and LinkedIn Easy Apply where the portal offers
+them. Indeed external-site handoffs are not successful applications. Inspect LinkedIn posts
+and prepare relevant comments, but publish only after explicit SEND-APPROVED authorization
+for the exact text.
+
+For each meaningful step, keep a local ledger row and screenshot. Unknown answers, login/MFA/
+CAPTCHA walls, rate limits, unverified fields, inaccessible controls, and ambiguous submit
+states are BLOCKED with the exact evidence. End with profile changes, confirmed applications,
+blocked work, skipped work and the ledger path. Do not call the mission complete while a
+required lane lacks a receipt.

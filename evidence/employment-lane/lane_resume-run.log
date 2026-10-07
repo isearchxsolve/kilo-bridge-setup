@@ -1,0 +1,17 @@
+﻿[2026-10-06T22:47:31.0145833+05:30] lane_resume.py start
+A1 navigate -> https://www.naukri.com/mnjuser/profile
+   url   = https://www.naukri.com/mnjuser/profile
+   title = Profile | Mynaukri
+   chars = 1752
+A2 shot -> D:\anonym\delivery\kilo-bridge-setup\evidence\employment-lane\30-naukri-profile-resume-20261006-224751.png
+A3 reading profile sections ...
+   section anchors: ["Resume headline","Key skills","Employment","Education","Profile summary","Career profile","Resume headlineeditOneTheme","Resume headline","Key skillseditOneTheme","Key skills"]
+   resume headline: 
+   incomplete markers: Do not have disability
+A4 report
+   session_ok  = True
+   handle      = KUNAL DAS
+   completion  = 100
+  LEDGER + OK :: resume: profile read + section state captured
+client closed cleanly
+[2026-10-06T22:47:52.0206453+05:30] exit=0

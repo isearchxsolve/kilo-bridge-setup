@@ -1,0 +1,16 @@
+binding Agent 360 (screenshot forces it)...
+  screenshot returned -> extension bound
+  Naukri    LIVE        chars=  6099  {'result': 'Home | Mynaukri', 'method': 
+  Foundit   LIVE        chars=  3339  {'result': '8,00,000+ Jobs in India: App
+  Indeed    LIVE        chars=  3409  {'result': 'Job Search India | Indeed', 
+  LinkedIn  LIVE        chars=  5223  {'result': 'Feed | LinkedIn', 'method': 
+
+employment-lane signals on Naukri:
+  KUNAL                yes
+  Search appearances   yes
+  Recruiter actions    yes
+  100%                 yes
+
+portals with a LIVE session: 4/4
+LANE-VERDICT: GREEN
+Agent360Client closed cleanly

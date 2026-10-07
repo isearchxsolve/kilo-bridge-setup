@@ -1,0 +1,36 @@
+B1 navigate -> https://www.naukri.com/mnjuser/recommendedjobs
+   url   = https://www.naukri.com/mnjuser/recommendedjobs
+   chars = 30304
+   shot -> D:\anonym\delivery\kilo-bridge-setup\evidence\employment-lane\40-naukri-recommended-20261007-025000.png
+B3 cards: selector=[class*=jobTuple] n=177
+   [01] score=2  PASS Java Technical Delivery Manager
+  LEDGER + MATCHED      :: jobcard 1 read+gated
+   [03] score=0  skip Just Now
+  LEDGER + NO_MATCH     :: jobcard 3 read+gated
+   [04] score=1  skip G5 G6 IT Manager Supply Chain Engineering
+  LEDGER + NO_MATCH     :: jobcard 4 read+gated
+   [06] score=0  skip 1 Day Ago
+  LEDGER + NO_MATCH     :: jobcard 6 read+gated
+   [07] score=3  PASS Senior AI Architect
+  LEDGER + MATCHED      :: jobcard 7 read+gated
+   [10] score=3  PASS Enterprise Multi-Solution Architect
+  LEDGER + MATCHED      :: jobcard 10 read+gated
+   [13] score=3  PASS Core Gen AI / Generative AI Architect- Healthcare
+  LEDGER + MATCHED      :: jobcard 13 read+gated
+   [16] score=10 PASS GenAI Architect | Generative AI | LLM | RAG | Agentic AI
+  LEDGER + MATCHED      :: jobcard 16 read+gated
+   [19] score=7  PASS Architect/Lead AI Engineer (Agentic AI)
+  LEDGER + MATCHED      :: jobcard 19 read+gated
+   [21] score=0  skip 4 Days Ago
+  LEDGER + NO_MATCH     :: jobcard 21 read+gated
+   [22] score=7  PASS Solution Architect AI Native SDLC Platform
+  LEDGER + MATCHED      :: jobcard 22 read+gated
+   [25] score=5  PASS Gen AI - Technical Architect
+  LEDGER + MATCHED      :: jobcard 25 read+gated
+B4 evaluated=12  gate-passed=8
+
+SUMMARY naukri :: recommended jobs
+  MATCHED      8
+  NO_MATCH     4
+  ledger -> D:\anonym\delivery\kilo-bridge-setup\evidence\employment-lane\ledger.tsv
+client closed cleanly

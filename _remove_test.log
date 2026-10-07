@@ -1,0 +1,9 @@
+[22:22:56] exists before = True
+[22:22:56] content = b'{"pid":11204,"since":"2026-10-06T15:50:56Z"}\n'
+[22:22:56] attempt os.remove ...
+[22:22:56] os.remove FAILED  type=PermissionError errno=13 winerror=32 strerror=The process cannot access the file because it is being used by another process
+[22:22:56] exists after = True
+[22:22:56] attempt in-place overwrite ...
+[22:22:56] overwrite OK -> '{"pid": 14788, "since": "TEST"}\n'
+[22:22:56] overwrite FAILED type=PermissionError errno=13 winerror=32
+[22:22:56] END

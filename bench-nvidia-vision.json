@@ -1,0 +1,247 @@
+[
+  {
+    "model": "z-ai/glm-5.3-flash",
+    "text": {
+      "http": null,
+      "ttft_ms": null,
+      "total_ms": 35468,
+      "text": "",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "vision": {
+      "http": null,
+      "ttft_ms": null,
+      "total_ms": 35303,
+      "text": "",
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  {
+    "model": "deepseek-ai/deepseek-v4.1-flash",
+    "text": {
+      "http": null,
+      "ttft_ms": null,
+      "total_ms": 15331,
+      "text": "",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "vision": {
+      "http": null,
+      "ttft_ms": null,
+      "total_ms": 15288,
+      "text": "",
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  {
+    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "text": {
+      "http": 400,
+      "ttft_ms": null,
+      "total_ms": 768,
+      "text": "",
+      "error": "{\"error\":{\"message\":\"Validation: Unsupported parameter(s): `clear_thinking`\",\"type\":\"Bad Request\",\"code\":400}}"
+    },
+    "vision": {
+      "http": 400,
+      "ttft_ms": null,
+      "total_ms": 536,
+      "text": "",
+      "error": "{\"error\":{\"message\":\"Validation: Unsupported parameter(s): `clear_thinking`\",\"type\":\"Bad Request\",\"code\":400}}"
+    }
+  },
+  {
+    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "text": {
+      "http": 200,
+      "ttft_ms": 749,
+      "total_ms": 1995,
+      "text": "PONG",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 632,
+      "total_ms": 633,
+      "text": "",
+      "error": null
+    }
+  },
+  {
+    "model": "meta/muse-glimmer-30b",
+    "text": {
+      "http": null,
+      "ttft_ms": null,
+      "total_ms": 15247,
+      "text": "",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "vision": {
+      "http": null,
+      "ttft_ms": null,
+      "total_ms": 15237,
+      "text": "",
+      "error": "TimeoutError: The read operation timed out"
+    }
+  },
+  {
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "text": {
+      "http": 200,
+      "ttft_ms": 608,
+      "total_ms": 650,
+      "text": "PONG",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 1814,
+      "total_ms": 2120,
+      "text": "The top half of the image is red, and the bottom half is blue.",
+      "error": null
+    }
+  },
+  {
+    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "text": {
+      "http": 200,
+      "ttft_ms": 645,
+      "total_ms": 647,
+      "text": "",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 487,
+      "total_ms": 488,
+      "text": "",
+      "error": null
+    },
+    "tool": {
+      "http": 200,
+      "total_ms": 2987,
+      "tool_call": true,
+      "name": "report",
+      "arguments": "{\"status\": \"ready\"}",
+      "error": null
+    }
+  },
+  {
+    "model": "meta/muse-glimmer-30b",
+    "text": {
+      "http": 200,
+      "ttft_ms": 1294,
+      "total_ms": 1740,
+      "text": "",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 1713,
+      "total_ms": 2256,
+      "text": "",
+      "error": null
+    },
+    "tool": null
+  },
+  {
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "text": {
+      "http": 200,
+      "ttft_ms": 573,
+      "total_ms": 604,
+      "text": "PONG",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 876,
+      "total_ms": 1124,
+      "text": "The top half of the image is red, and the bottom half is blue.",
+      "error": null
+    },
+    "tool": {
+      "http": 200,
+      "total_ms": 1035,
+      "tool_call": true,
+      "name": "report",
+      "arguments": "<|python_tag|>{\"name\": \"report\", \"parameters\": {\"status\": \"ready\"}}",
+      "error": null
+    }
+  },
+  {
+    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "text": {
+      "http": 200,
+      "ttft_ms": 683,
+      "total_ms": 684,
+      "text": "",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 489,
+      "total_ms": 490,
+      "text": "",
+      "error": null
+    },
+    "tool": {
+      "http": 200,
+      "total_ms": 2684,
+      "tool_call": true,
+      "name": "report",
+      "arguments": "{\"status\": \"ready\"}",
+      "error": null
+    }
+  },
+  {
+    "model": "meta/muse-glimmer-30b",
+    "text": {
+      "http": 200,
+      "ttft_ms": 1380,
+      "total_ms": 1910,
+      "text": "",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 1780,
+      "total_ms": 2625,
+      "text": "",
+      "error": null
+    },
+    "tool": {
+      "http": 200,
+      "total_ms": 4181,
+      "tool_call": false,
+      "name": null,
+      "arguments": null,
+      "error": null
+    }
+  },
+  {
+    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "text": {
+      "http": 200,
+      "ttft_ms": 700,
+      "total_ms": 737,
+      "text": "PONG",
+      "error": null
+    },
+    "vision": {
+      "http": 200,
+      "ttft_ms": 1199,
+      "total_ms": 1295,
+      "text": "RED, BLUE",
+      "error": null
+    },
+    "tool": {
+      "http": 503,
+      "total_ms": 527,
+      "tool_call": false,
+      "name": null,
+      "arguments": null,
+      "error": "{\"error\":{\"message\":\"ResourceExhausted: Worker local total request limit reached (16/16)\",\"type\":\"Service Unavailable\",\"code\":503}}"
+    }
+  }
+]

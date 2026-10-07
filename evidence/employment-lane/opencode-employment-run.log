@@ -1,0 +1,61 @@
+﻿[2026-10-06 23:49:42] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-06 23:49:42] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-06 23:49:42] token absent (clean start)
+[2026-10-06 23:49:42] mission present: 2532 bytes
+[2026-10-06 23:49:42] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 00:20:06] opencode exited after 1,824s  exitcode=1
+[2026-10-07 00:20:06] === EMPLOYMENT LANE WINDOW DONE ===
+[2026-10-07 08:50:27] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 08:50:27] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 08:50:27] token absent (clean start)
+[2026-10-07 08:50:27] mission present: 2532 bytes
+[2026-10-07 08:50:27] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 08:55:54] opencode exited after 327s  exitcode=1
+[2026-10-07 08:55:54] === EMPLOYMENT LANE WINDOW DONE ===
+[2026-10-07 09:00:33] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:00:33] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:00:33] token absent (clean start)
+[2026-10-07 09:00:33] mission present: 2532 bytes
+[2026-10-07 09:00:33] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:06:45] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:06:45] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:06:45] token absent (clean start)
+[2026-10-07 09:06:45] mission present: 2532 bytes
+[2026-10-07 09:06:45] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:07:27] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:07:27] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:07:27] token absent (clean start)
+[2026-10-07 09:07:27] mission present: 2532 bytes
+[2026-10-07 09:07:27] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:18:00] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:18:01] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:18:01] token absent (clean start)
+[2026-10-07 09:18:01] mission present: 2532 bytes
+[2026-10-07 09:18:01] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:24:48] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:24:48] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:24:48] token absent (clean start)
+[2026-10-07 09:24:48] mission present: 2532 bytes
+[2026-10-07 09:24:48] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:37:22] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:37:22] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:37:22] token absent (clean start)
+[2026-10-07 09:37:23] mission present: 3168 bytes
+[2026-10-07 09:37:23] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:40:28] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:40:28] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:40:28] token absent (clean start)
+[2026-10-07 09:40:28] mission present: 3168 bytes
+[2026-10-07 09:40:28] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:49:29] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:49:29] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:49:29] token absent (clean start)
+[2026-10-07 09:49:29] mission present: 3168 bytes
+[2026-10-07 09:49:29] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 09:57:42] === EMPLOYMENT LANE START (opencode + Nemotron-550B) ===
+[2026-10-07 09:57:42] cwd = D:\anonym\delivery\kilo-bridge-setup
+[2026-10-07 09:57:42] token absent (clean start)
+[2026-10-07 09:57:43] mission present: 3168 bytes
+[2026-10-07 09:57:43] invoking opencode run (nvidia/nvidia/nemotron-3-ultra-550b-a55b, --auto) ...
+[2026-10-07 10:00:23] opencode exited after 160s  exitcode=-1
+[2026-10-07 10:00:23] === EMPLOYMENT LANE WINDOW DONE ===

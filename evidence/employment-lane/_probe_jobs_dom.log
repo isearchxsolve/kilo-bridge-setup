@@ -1,0 +1,36 @@
+﻿[2026-10-06T22:53:35.0928034+05:30] probe start
+URL: https://www.naukri.com/mnjuser/recommendedjobs
+CHARS: 31516
+
+--- candidate job-card selectors ---
+[{"sel":"article","n":63},{"sel":"div[class*=job]","n":190},{"sel":"div[class*=tuple]","n":63},{"sel":"div[class*=card]","n":0},{"sel":"li[class*=job]","n":0},{"sel":"[class*=cust-job-tuple]","n":0},{"sel":"[class*=srp-jobtuple]","n":0},{"sel":"[class*=jobTuple]","n":186},{"sel":"[data-job-id]","n":62},{"sel":"a[href*=job-listings]","n":0}]
+
+--- ids/classes containing job-ish words ---
+["jobTuple bgWhite z-depth-1 ","dspIB saveJobContainer tuple-check-box","jobTupleHeader","jobTupleFooter mt-10","jobTuple bgWhite z-depth-1 ","dspIB saveJobContainer tuple-check-box","jobTupleHeader","jobTupleFooter mt-10","naukri-wdgt ni-desktop-reco-v2_tuple-2-section_inventory-1 naukri-js-wdgt","jobTuple bgWhite z-depth-1 ","dspIB saveJobContainer tuple-check-box","jobTupleHeader","jobTupleFooter mt-10","jobTuple bgWhite z-depth-1 ","dspIB saveJobContainer tuple-check-box","jobTupleHeader","jobTupleFooter mt-10","jobTuple bgWhite z-depth-1 ","dspIB saveJobContainer tuple-check-box","jobTupleHeader"]
+
+--- first 600 chars of page text ---
+Jobs
+2
+Companies
+Services
+1
+Search jobs here
+15
+2
+Recommended jobs for you
+You can select upto 5 jobs to applyApply
+Applies (62)
+Profile (6)
+Preferences (22)
+You might like (5)
+
+GenAI Architect | Generative AI | LLM | RAG | Agentic AI
+
+Connect iO
+Posted by Connectio It
+11-20 Yrs35-50 Lacs PABengaluru, Pune, Noida
+The ideal candidate should have strong experience in RAG, Agentic AI, LLM orchestration, cloud AI platforms, vector databases, LLMOps, and AI security / governance Must Have: . 10+ years overall IT experience Good to Have: . AWS Bedrock / Google V...GenAIAWS BedrockLLMRAGGenAI Archite
+
+--- job listing anchors (title + href) ---
+[]
+[2026-10-06T22:53:59.9871968+05:30] exit=0
