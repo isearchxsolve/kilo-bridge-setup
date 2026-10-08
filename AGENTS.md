@@ -125,3 +125,39 @@ Do not describe the package or a run as complete while any required lane is
 unimplemented, blocked, or unverified. **A clean exit code is not a result.** If the
 agent stream ends in raw control tokens or missing sections, the run failed: report
 that, do not summarise it as progress.
+
+## 7. LANE 5 — THE TWO-EDGED SWORD PIPELINE (V2 ARCHITECTURE)
+
+In addition to outbound job applications for the candidate (Lanes 1–4: Naukri, Foundit, Indeed, LinkedIn), the engine operates **Lane 5: The Two-Edged Sword** (`scripts/lane_two_edged_sword.py`). This converts outbound job hunting into reciprocal value delivery, community support, and commercial software distribution.
+
+### 7.1 Architecture & Flow
+1. **Dynamic Network Scan**: Discovers 1st-degree LinkedIn connections actively seeking opportunities (`#OpenToWork`).
+2. **Deep Fit Reasoning (Nemotron-120B)**: Cross-references each connection's profile and headline against live remote/hybrid job openings, extracting top 3 tailored roles with company, salary, and requirements.
+3. **Value-First Direct Engagement**: Dispatches personalized, respectful outreach directly to the candidate's DM. Never pitch-slap. Lead with pure value (the 3 matched opportunities) and present Baba's 3-Tier Delivery Model.
+4. **24/7 Inbound Payment & Deliverable Pipeline** (`scripts/lane_payment_pipeline.py`): Listens for incoming responses, classifies candidate choice (Options 1, 2, or 3), dispatches payment instructions (₹499), and automatically delivers download links or activates cloud runner.
+5. **Curated Lead Magnet Post Publisher** (`scripts/post_linkedin_curated.py`): Publishes high-authority engineering and career insights to LinkedIn feed, driving inbound profile scans and candidate engagement.
+
+### 7.2 The 3-Tier Commercial & Delivery Model
+- **Option 1: Free Profile Match & Curated Roles (₹0 Hook)**
+  - ATS keyword fit check + 3 verified live openings delivered directly in DM.
+  - Zero charge, builds trust and immediate reciprocity.
+- **Option 2: KiloBridge Standalone Software Suite (₹499 Product)**
+  - Candidate runs their own local desktop bot for automated applications across portals.
+  - Delivered via verified Google Drive package link:
+    `https://drive.google.com/file/d/1UeQl5NohiRNXacW9J9LV-z8o_TD9ucCQ/view?usp=sharing`.
+  - Includes full scripts, dependency setup, and step-by-step user guide.
+- **Option 3: Managed Cloud Runner (₹499 Full Service)**
+  - Managed 24/7 application service running on our cloud runners on the candidate's behalf with daily progress reports.
+
+### 7.3 Public Identity & Communication Law
+- **Identity**: Author is strictly **Kunal Das / Kunal**.
+- **Contact Email**: The sole client-facing contact email is **isearch.xsolve@gmail.com**.
+- **No Live Calls**: All communications are text/DM/email only. Never promise a phone call or live meeting.
+- **Voice**: Warm, professional, engineering-first, helpful. Never transactional or pushy.
+
+### 7.4 Lane 5 Evidence & Receipt Laws
+- **Pre-send & Post-send Screenshots**: For every candidate DM, capture:
+  1. `two-edge-typed-<candidate_slug>-<timestamp>.png` (message rendered in composer).
+  2. `two-edge-sent-<candidate_slug>-<timestamp>.png` (message delivered in chat history with checkmark).
+- **Deduplication Ledger**: Recorded in `evidence/employment-lane/two_edged_sword_sent.json`. Never re-message a candidate already in the sent registry.
+
