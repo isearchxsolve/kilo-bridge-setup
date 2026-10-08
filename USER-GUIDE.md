@@ -1,160 +1,144 @@
-# User Guide — 24/7 Autonomous Employment Lane Package
+# User Guide — Autonomous Job Application Assistant
 
-A production-grade, zero-defect autonomous job application and market intelligence engine spanning **Naukri**, **Foundit**, **Indeed**, and **LinkedIn**.
+Welcome! This system is your autonomous job application assistant for **Naukri**, **Foundit**, **Indeed**, and **LinkedIn**.
 
----
-
-## 1. System Overview & Architecture
-
-This package runs continuously (24/7) to discover matching senior leadership and architect roles, perform multi-step recruiter screening dialogues, submit verified applications, and monitor job feeds.
-
-### Core Foundations
-* **Sole Source of Truth (Allowlist)**: The candidate's pinned resume PDF (named in `candidate-profile.json` and verified against its SHA-256 hash). All personal facts, skills, tenures, locations, and preferences are parsed at runtime by `scripts/resume_facts.py`.
-* **Intelligence Layer**: **Free OpenCode + NVIDIA NIM Nemotron-120B Super** (`nvidia/nemotron-3-super-120b-a12b`). Zero `agy` dependency.
-* **Browser Automation**: CDP-level browser actions through `@agent360/browser-mcp` on your authenticated Chrome profile.
-* **The 11 Operating Laws**: Strict adherence to no hallucinated data (Law 2), screenshot receipts (Law 1), human gate safety (Laws 4 & 5), and honest halts over faked completions (Law 11).
+It runs quietly in the background, finds relevant jobs matching your skills, fills out recruiter application forms accurately, and saves screenshot proofs for every action.
 
 ---
 
-## 2. Prerequisites
+## ⚡ 3-Step Quick Start
 
-1. **Operating System**: Windows 10/11 (PowerShell 5.1 or PowerShell 7+).
-2. **Runtimes**:
-   - Python 3.11+ (with virtual environment in `venv/`).
-   - Node.js 20+ (for OpenCode CLI and MCP).
-3. **Browser**:
-   - Google Chrome running with the **Agent360** extension installed.
-   - User logged into the target portals (**Naukri**, **Foundit**, **Indeed**, **LinkedIn**) in the authenticated Chrome profile.
-4. **OpenCode & Nemotron**:
-   - OpenCode installed (`npm i -g opencode-ai`).
-   - Configured with NVIDIA NIM (`~/.config/opencode/opencode.jsonc`) using the free `nvidia/nemotron-3-super-120b-a12b` model.
+Setting up takes less than 2 minutes.
 
----
+### Step 1: Copy Your Resume PDF
+Copy your resume PDF into this folder and name it:
+```text
+candidate-resume.pdf
+```
+*(No hardcoded file paths needed! The system automatically looks in the project folder.)*
 
-## 3. Quick Start — Running the System
-
-### Option A: 24/7 Autonomous Daemon (Recommended)
-Runs an infinite autonomous loop across all 4 employment lanes with crash recovery and jittered cycle pacing (default ~20 minutes between cycles):
-
+### Step 2: Set Your Resume Hash
+Open PowerShell in this folder and get the file hash:
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\run-247.ps1
+Get-FileHash -Algorithm SHA256 candidate-resume.pdf
 ```
 
-Or double-click:
-```bat
-run-247.bat
+Copy the 64-character hash and paste it into `candidate-profile.json`:
+```json
+{
+  "resume_path": "candidate-resume.pdf",
+  "resume_sha256": "PASTE_YOUR_SHA256_HASH_HERE"
+}
 ```
+> **Note:** That's the only configuration required! You never need to type your name, phone, email, or skills into any JSON file. The system reads everything directly and securely from your resume PDF.
 
-### Option B: Single Full-Cycle Pass
-Runs one complete pass across all 4 portals (Naukri Profile, Naukri Mass Apply, Foundit Fit Gating, Indeed/LinkedIn Market Search & Feed) and exits cleanly:
+### Step 3: Open Chrome & Log In
+Open Google Chrome and make sure you are logged into:
+- [Naukri](https://www.naukri.com)
+- [Foundit](https://www.foundit.in)
+- [Indeed](https://www.indeed.com)
+- [LinkedIn](https://www.linkedin.com)
 
+---
+
+## 🚀 Running the Assistant
+
+### Option 1: 24/7 Background Runner (Recommended)
+Runs continuously in the background, checking portals, applying to matches, and resting between rounds:
+
+- **Double-click:** `run-247.bat`  
+  *or*
+- **Run in PowerShell:**
+  ```powershell
+  powershell -ExecutionPolicy Bypass -File .\run-247.ps1
+  ```
+
+### Option 2: Run a Single Round
+To run exactly one cycle across all 4 portals and immediately stop:
 ```powershell
 python scripts\lane_all.py
 ```
 
-### Option C: Running Individual Lanes
-You can run any specific portal independently:
-
+### Option 3: Run an Individual Portal
+You can run any portal individually:
 ```powershell
-# Lane 1: Naukri Profile Verification & Recommended Scan
+# Naukri Quick Profile Check
 python scripts\lane_resume.py
 
-# Lane 2: Naukri Dynamic Discovery & Mass Apply (apply limit: 3)
+# Naukri Mass Apply (applies up to 3 jobs)
 python scripts\lane_mass_apply.py --limit 3
 
-# Lane 3: Foundit Search & Fit Gating
+# Foundit Search & Gate Check
 python scripts\lane_foundit.py
 
-# Lane 4A: Indeed & LinkedIn Market Discovery
+# Indeed & LinkedIn Market Discovery
 python scripts\lane_market_probe.py
 
-# Lane 4B: LinkedIn Feed Engagement
+# LinkedIn Feed Monitor
 python scripts\lane_linkedin_feed.py
 ```
 
 ---
 
-## 4. Configuration & Candidate Setup
+## 📊 Checking Your Results
 
-### Candidate Profile Pointer (`candidate-profile.json`)
-The candidate record contains **zero hardcoded personal values**. It only points to the pinned resume PDF:
+### 1. The Summary Report
+Check [`evidence/employment-lane/latest-mission-report.md`](evidence/employment-lane/latest-mission-report.md) at any time to see:
+- Total confirmed job applications.
+- Current cycle status.
+- Which roles were applied for and matched.
 
-```json
-{
-  "resume_path": "C:\\Users\\Admin\\Downloads\\Resume.pdf",
-  "resume_sha256": "BF2FED8AFACCD67BCA87BBE50F2CF0A43956ED1025DFD068EDCB0719BC5F1394"
-}
+### 2. Screenshot Proofs
+Every applied job and form step saves a timestamped screenshot in:
+```text
+evidence/employment-lane/
+```
+Look for files named:
+- `mass-apply-success-*.png` (Application confirmed)
+- `mass-apply-blocked-*.png` (Blocked by unconfirmed question)
+
+### 3. The Activity Log
+The full audit trail is recorded in:
+```text
+evidence/employment-lane/ledger.tsv
 ```
 
-To switch candidates:
-1. Place the new candidate's PDF in a secure directory.
-2. Calculate its SHA256:
-   ```powershell
-   Get-FileHash -Algorithm SHA256 "path\to\resume.pdf"
-   ```
-3. Update `resume_path` and `resume_sha256` in `candidate-profile.json`.
+---
 
-### Cycle Pacing & Jitter
-You can adjust cycle intervals directly when invoking `run-247.ps1`:
+## 🛡️ Built-In Safety Rules
+
+The assistant follows strict safety rules so you stay in total control:
+
+1. **No Made-Up Information**: The assistant only provides facts that exist in your resume. It will never guess or make up a number, degree, or company.
+2. **Honest Halts on Private Data**: If a recruiter asks for private data not in your resume (like a PAN number, Aadhaar, or custom hourly rate), the assistant will not guess. It safely skips the job and notes `BLOCKED` in the log.
+3. **Respects Your Preferences**:
+   - If your resume says "Remote only", it will never say "Yes" to relocating to on-site cities.
+   - If a question asks if you reside in India, it checks your resume location.
+4. **Never Touches Passwords or CAPTCHAs**: It will never type passwords or try to bypass security checks. If a login session expires, it halts that portal until you sign in.
+5. **Never Spends Money**: It will never click paid promotions or subscriptions.
+
+---
+
+## ⚙️ Customizing Settings (Optional)
+
+You can tweak how often the 24/7 runner cycles and how many jobs it applies for per round:
+
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\run-247.ps1 -IntervalSeconds 1800 -JitterSeconds 180 -LimitPerRound 5
+powershell -ExecutionPolicy Bypass -File .\run-247.ps1 -IntervalSeconds 1200 -LimitPerRound 3
 ```
-* `-IntervalSeconds`: Base sleep between cycles (default: `1200`s = 20 min).
-* `-JitterSeconds`: Random sleep variation to avoid predictable intervals (default: `120`s).
-* `-LimitPerRound`: Maximum job applications per round on Naukri (default: `3`).
+
+- `-IntervalSeconds 1200`: Wait 20 minutes between cycles (default: 1200s).
+- `-LimitPerRound 3`: Maximum applications per round on Naukri (default: 3).
 
 ---
 
-## 5. Recruiter Screening Intelligence & The 11 Laws
+## ❓ Frequently Asked Questions
 
-The engine uses **Nemotron-120B Super** grounded strictly in candidate resume facts to answer multi-turn screening questions.
+**Q: Does my resume need an absolute path like `C:\Users\...`?**  
+**A:** No! Simply name your file `candidate-resume.pdf` in the project root folder. The system uses relative paths automatically.
 
-### Strict Safety & Integrity Rules:
-1. **Residency vs. Relocation**:
-   - Questions asking about *residing in India* resolve to `"Yes"` (candidate resides in Kolkata, India).
-   - Questions asking to *relocate to on-site cities* resolve to `"No"` because candidate's verified preference is `"Open to Remote only"`.
-2. **Technological Release Boundaries**:
-   - Model Context Protocol (MCP) experience is bounded to max `1` year (late 2024).
-   - Generative AI / LLM / RAG / LangChain experience is bounded to max `2` years (late 2022).
-   - Overall AI/ML / Python / AWS experience is bounded to `8` years.
-   - Total career experience is `22` years.
-3. **Availability & Daily Commitment**:
-   - Questions asking about joining immediately or dedicating 4–5 daily hours resolve to `"Yes"` based on verified fact `AVAILABILITY: Available Now`.
-4. **Honest Halts on Unconfirmed Facts (Law 2 & Law 11)**:
-   - If a recruiter demands a fact not in the resume (e.g. **PAN card number**, **hourly billing rate**, or prior interview history at that specific company), the engine **never invents data**.
-   - It records `BLOCKED` in the ledger, saves a screenshot, closes the drawer, and moves to the next job.
+**Q: What happens if a portal asks for OTP or CAPTCHA?**  
+**A:** The assistant immediately halts on that portal and moves to the next. You can simply log in or solve the CAPTCHA in Chrome in your own time, and the next cycle will pick up automatically.
 
----
-
-## 6. Audit Ledger & Evidence
-
-Every single action is recorded in real time to the tab-separated ledger:
-* **Ledger Path**: [`evidence/employment-lane/ledger.tsv`](evidence/employment-lane/ledger.tsv)
-* **Format**: Exactly 10 tab-separated columns:
-  ```
-  ts | portal | query_or_source | role | company | match_score | step | status | receipt | note
-  ```
-* **Status Values**:
-  - `MATCHED`: Job cleared skill gate ($\ge 2$ matching skills) and remote location filter.
-  - `NO_MATCH`: Job rejected due to skill gate (< 2) or on-site location mismatch.
-  - `APPLIED`: Application confirmed by portal modal/banner or history tuple.
-  - `BLOCKED`: Step halted due to unconfirmed fact (PAN, hourly rate) or external redirect.
-  - `OK`: Action completed successfully (e.g. feed engagement, profile check).
-
-### Screenshot Receipts
-Per **Law 1** (*The screenshot is the receipt*), all actions produce timestamped PNGs in `evidence/employment-lane/`:
-* `mass-apply-success-*.png`: Confirmed application submissions.
-* `mass-apply-blocked-*.png`: Exact recruiter questions or obstacles that blocked submission.
-* `mass-apply-handoff-*.png`: External ATS handoffs.
-* `40-naukri-recommended-*.png`, `50-foundit-search-*.png`, `60-indeed-search-*.png`, `60-linkedin-search-*.png`, `70-linkedin-feed-*.png`.
-
----
-
-## 7. Troubleshooting & FAQs
-
-| Symptom | Cause | Solution |
-| :--- | :--- | :--- |
-| **"Waiting for input" in IDE alerts** | Recruiter question in log contained text like *"Please give PAN number"* | This is a passive terminal regex match. The script never blocks on stdin; it automatically records `BLOCKED` and continues. |
-| **Agent360 "Not connected"** | WebSocket bridge starts on demand when a CDP tool is invoked | The extension popup shows "Not connected" when idle. It automatically bridges when a cycle begins. |
-| **OTP or CAPTCHA appears** | Human gate encountered on portal | Per Laws 4 & 5, human gates must never be automated. Complete the login or verification manually in Chrome. The runner will proceed on the next cycle. |
-| **Single Browser Owner Error** | Multiple scripts trying to access Chrome simultaneously | Ensure only one instance of `run-247.ps1` or individual lane script is running at a time (Law 7). |
+**Q: How do I stop the 24/7 runner?**  
+**A:** Press `Ctrl + C` in the PowerShell/Command Prompt window running `run-247`.

@@ -26,14 +26,14 @@ The runner never enters passwords or OTPs. Sign in manually before running. Brow
 
 ## Run
 
-Use the canonical Downloads copy (the command below keeps the same `-Launch` interface):
+Use standard relative paths within the package directory:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "C:\Users\Admin\Downloads\kilo-bridge-setup\kilo-bridge-setup.ps1" -InstallMcp
-Copy-Item "C:\Users\Admin\Downloads\kilo-bridge-setup\candidate-profile.example.json" "C:\Users\Admin\Downloads\kilo-bridge-setup\candidate-profile.json"
-# Set resume_path to the candidate's resume PDF and its real SHA256 in
+powershell -ExecutionPolicy Bypass -File .\kilo-bridge-setup.ps1 -InstallMcp
+Copy-Item .\candidate-profile.example.json .\candidate-profile.json
+# Set resume_path to "candidate-resume.pdf" and its real SHA256 in
 # candidate-profile.json. That PDF is the single source of truth for all facts.
-powershell -ExecutionPolicy Bypass -File "C:\Users\Admin\Downloads\kilo-bridge-setup\kilo-bridge-setup.ps1" -Launch
+powershell -ExecutionPolicy Bypass -File .\kilo-bridge-setup.ps1 -Launch
 ```
 
 The setup/install step is allowed before candidate data is configured. `-Launch` requires a

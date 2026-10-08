@@ -86,11 +86,20 @@ _MODEL_TAIL = re.compile(
     r"\s*(?:·|,)?\s*(?:immediate joiner|available now)\s*$", re.I)
 
 
+def _resolve_path(path):
+    p = Path(path)
+    if not p.is_file() and not p.is_absolute():
+        repo_p = Path(__file__).resolve().parent.parent / p
+        if repo_p.is_file():
+            return repo_p
+    return p
+
+
 def _text_lines(path):
     """Every visible text line of the document, in page order."""
     import pypdf
 
-    reader = pypdf.PdfReader(str(path))
+    reader = pypdf.PdfReader(str(_resolve_path(path)))
     lines = []
     for page in reader.pages:
         for line in (page.extract_text() or "").splitlines():
@@ -375,7 +384,7 @@ def facts(path) -> dict:
 
 def verify(path, expected_sha256):
     """(ok, message) - the resume must exist and match the recorded hash."""
-    path = Path(path)
+    path = _resolve_path(path)
     if not path.is_file():
         return False, "resume missing: %s" % path
     actual = hashlib.sha256(path.read_bytes()).hexdigest().upper()
@@ -389,6 +398,7 @@ REPORT_KEYS = ("NAME", "PHONE", "PHONE_COUNTRY_CODE", "EMAIL", "LOCATION",
 
 def report(path):
     """Confirmation table for the launcher preflight: fact or BLOCKED, per key."""
+    path = _resolve_path(path)
     found = facts(path)
     lines = []
     for key in REPORT_KEYS:
