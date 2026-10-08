@@ -28,6 +28,8 @@ import lane_mass_apply
 import lane_foundit
 import lane_market_probe
 import lane_linkedin_feed
+import lane_two_edged_sword
+import lane_payment_pipeline
 
 
 def log(msg: str):
@@ -85,7 +87,7 @@ def execute_cycle(cycle: int, limit_per_round: int = 3):
         log(f"Foundit lane error: {exc}")
 
     # 5. Indeed & LinkedIn Market Search + Feed
-    log("\n--- [LANE 4/4] INDEED & LINKEDIN: Market Search & Feed ---")
+    log("\n--- [LANE 4/5] INDEED & LINKEDIN: Market Search & Feed ---")
     try:
         lane_market_probe.main()
     except Exception as exc:
@@ -94,6 +96,22 @@ def execute_cycle(cycle: int, limit_per_round: int = 3):
         lane_linkedin_feed.main()
     except Exception as exc:
         log(f"LinkedIn feed error: {exc}")
+
+    # 6. LinkedIn Two-Edged Sword 1st-Degree Outreach & Magnet
+    log("\n--- [LANE 5/5] LINKEDIN: Two-Edged Sword 1st-Degree Outreach ---")
+    try:
+        sys.argv = ["lane_two_edged_sword.py"]
+        lane_two_edged_sword.main()
+    except Exception as exc:
+        log(f"Two-Edged Sword lane error: {exc}")
+
+    # 7. LinkedIn Inbound Payment & Deliverable Pipeline Listener
+    log("\n--- [PAYMENT PIPELINE] LinkedIn Inbound Reply & Deliverable Listener ---")
+    try:
+        sys.argv = ["lane_payment_pipeline.py"]
+        lane_payment_pipeline.main()
+    except Exception as exc:
+        log(f"Payment pipeline listener error: {exc}")
 
     # Snapshot applied count after
     after_rows = len(ledger_path.read_text(encoding="utf-8", errors="replace").splitlines()) if ledger_path.is_file() else 0

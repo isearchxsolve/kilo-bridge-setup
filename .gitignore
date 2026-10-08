@@ -22,3 +22,8 @@ __pycache__/
 
 evidence/employment-lane/*.previous
 evidence/employment-lane/daemon.log
+
+# Large distribution packages and temporary downloads
+*.zip
+*.tmp
+
