@@ -1,6 +1,17 @@
-# Kilo Bridge employment setup
+# Kilo Bridge Employment Package
 
-This package launches the employment mission agent through the installed OpenCode CLI and the existing Agent360 browser MCP. `-Launch` is the agent mission entry point; it does not run the deterministic lane scripts as a substitute for the agent.
+> **Complete Guide**: For detailed instructions on running the 24/7 autonomous loop, configuration, screening logic, and audit trails, please see [**USER-GUIDE.md**](USER-GUIDE.md).
+
+This package provides a production-grade 24/7 autonomous multi-portal employment automation engine spanning Naukri, Foundit, Indeed, and LinkedIn powered by free OpenCode + NVIDIA Nemotron-120B Super.
+
+## 24/7 Autonomous Daemon (Recommended)
+
+To run the continuous 24/7 autonomous cycle:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\run-247.ps1
+```
+Or double-click `run-247.bat`.
 
 ## Client prerequisites
 
