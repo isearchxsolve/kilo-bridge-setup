@@ -7,6 +7,11 @@ import lane_tools as T
 import lane_two_edged_sword as TES
 
 def process_candidate_profile(client, lane: T.Lane, profile_url: str):
+    # AVEEK HARD BLOCK LAW (Baba 2026-10-08: High-ticket client, SGD 5,250 / Rs 3.3L deal)
+    if "aveek" in profile_url.lower():
+        lane.log("CRITICAL HARD BLOCK: Aveek Sengupta profile URL detected! Immediate abort.")
+        return False
+
     lane.log(f"--- 1. Profile Scanning: {profile_url} ---")
     client.call_tool("browser_navigate", {"url": profile_url})
     time.sleep(5)
@@ -46,6 +51,17 @@ def process_candidate_profile(client, lane: T.Lane, profile_url: str):
     
     name = details.get("name") or "Candidate"
     headline = details.get("headline") or "Professional"
+
+    # AVEEK & VIP HARD BLOCK CHECK
+    if "aveek" in name.lower() or "sengupta" in name.lower() or "aveek" in headline.lower():
+        lane.log("CRITICAL HARD BLOCK: Aveek Sengupta detected! Immediate abort.")
+        return False
+
+    shielded, reason = TES.is_shielded_contact(name, headline, profile_url)
+    if shielded:
+        lane.log(f"SHIELD EXCLUSION: Contact {name} is a shielded VIP/client ({reason}). Aborting.")
+        return False
+
     recipient_id = details.get("recipient_id")
     
     if not recipient_id:

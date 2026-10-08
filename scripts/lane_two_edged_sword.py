@@ -44,6 +44,67 @@ def save_sent_tracker(data: dict):
     SENT_TRACKER.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 
+SHIELD_FILE = HERE.parent / "evidence" / "employment-lane" / "shielded_contacts.json"
+
+
+def load_shielded_contacts() -> dict:
+    if SHIELD_FILE.is_file():
+        try:
+            return json.loads(SHIELD_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {
+        "shielded_names": [
+            "Aveek Sengupta", "Aveek", "Arayemi Afeez", "Arayemi", "Satyen Sangani", "Satyen",
+            "Mathew Joseph Elenjickal", "Mathew Joseph", "Mathew Elenjickal", "Biswajit Bose",
+            "Prasun Banerjee", "Subham Sharma", "Partha Deb", "Partha Tola", "Rajesh",
+            "Soumyendu Paul", "Raktima Das", "Raktima"
+        ],
+        "shielded_slugs": [
+            "aveeksengupta", "aveek", "arayemi-afeez", "arayemi_afeez", "satyensangani", "satyen",
+            "mathew-elenjickal", "mathew-joseph-elenjickal", "mathew-joseph", "biswajit-bose",
+            "prasun-banerjee", "subham-sharma", "partha-deb", "soumyendu-paul", "raktima"
+        ],
+        "shielded_companies": [
+            "J.P. Morgan", "JPMorgan", "Morgan Stanley", "Alation", "FourKites", "Keross", "TransportLah", "ADP"
+        ]
+    }
+
+
+def is_shielded_contact(name: str, headline: str = "", profile_url: str = "") -> tuple[bool, str]:
+    """Strictly checks if a contact is a high-ticket client, enterprise partner, personal lead, or VIP."""
+    cfg = load_shielded_contacts()
+    name_clean = (name or "").strip().lower()
+    headline_clean = (headline or "").strip().lower()
+    url_clean = (profile_url or "").strip().lower()
+
+    # 0. AVEEK HARD BLOCK LAW (Baba 2026-10-08: High-ticket client, SGD 5,250 / Rs 3.3L deal kicking off Monday)
+    if "aveek" in name_clean or "sengupta" in name_clean or "aveek" in url_clean or "aveek" in headline_clean:
+        return True, "CRITICAL HARD BLOCK: Aveek Sengupta (TransportLah High-Ticket Client, Rs 3.3L deal)"
+
+    # 1. Exact or token name match
+    for s_name in cfg.get("shielded_names", []):
+        sn = s_name.strip().lower()
+        if sn and (sn == name_clean or sn in name_clean.split()):
+            return True, f"Matched shielded VIP name: '{s_name}'"
+
+
+    # 2. URL slug match
+    for s_slug in cfg.get("shielded_slugs", []):
+        ss = s_slug.strip().lower()
+        if ss and ss in url_clean:
+            return True, f"Matched shielded profile slug: '{s_slug}'"
+
+    # 3. Company match
+    for s_comp in cfg.get("shielded_companies", []):
+        sc = s_comp.strip().lower()
+        if sc and sc in headline_clean:
+            return True, f"Matched shielded enterprise client/firm: '{s_comp}'"
+
+    return False, ""
+
+
+
 NV_KEYS = [
     "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",
     "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",
@@ -225,6 +286,13 @@ def deliver_two_edged_sword_pitch(client, lane: T.Lane, recipient_id: str, name:
     if recipient_id in sent_data:
         lane.log(f"Skipping {name} - already sent on {sent_data[recipient_id].get('sent_at')}")
         return True
+
+    # ABSOLUTE SHIELD GATE: Never send to shielded contacts, leads, or clients
+    shielded, reason = is_shielded_contact(name, domain_summary)
+    if shielded:
+        lane.log(f"CRITICAL ABORT: Contact '{name}' is a SHIELDED VIP / CLIENT! Reason: {reason}")
+        return False
+
     
     # 1. Match jobs using Nemotron 120B reasoning over candidate profile
     jobs = find_matched_jobs(keywords, candidate_name=name, domain_summary=domain_summary, target_exp=7, limit=3)
@@ -330,17 +398,20 @@ def deliver_two_edged_sword_pitch(client, lane: T.Lane, recipient_id: str, name:
 
 
 OTW_REGEX = re.compile(
-    r"open\s*to\s*(work|opportunities)|actively\s*(looking|seeking)|seeking\s*(new\s*)?(roles?|opportunities?|job|positions?)|immediate\s*joiner|in\s*transition|open\s*for\s*opportunities",
+    r"\b(#?open\s*to\s*work|open\s*for\s*opportunities|actively\s*(seeking|looking)\s*(for\s*)?(new\s*)?(roles?|opportunities?|job|positions?)|immediate\s*joiner)\b",
     re.IGNORECASE
 )
 BUSINESS_EXCLUDE_REGEX = re.compile(
-    r"\b(CEO|Founder|Co-founder|Owner|President|Managing Director|General Partner|Investor|Career Coach)\b",
+    r"\b(CEO|Founder|Co-founder|Owner|President|Managing Director|General Partner|Partner|Investor|"
+    r"Career Coach|Coach|Recruiter|Talent Acquisition|Staffing|Head of|VP|Vice President|Senior Vice President|"
+    r"SVP|AVP|Director|Lead|Manager|Senior Manager|Consultant|Advisor|Banker|Trader|Lawyer|Attorney|"
+    r"Executive|Officer|Architect|Principal|Engineering Manager|HR Manager|HR Business Partner)\b",
     re.IGNORECASE
 )
 
 
-def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
-    """Scan LinkedIn connections, strictly filter for #OpenToWork candidates (ignoring business professionals), extract profile, match with Nemotron, and pitch."""
+def scan_and_pitch_next_connection(client, lane: T.Lane, stage_only: bool = False) -> bool:
+    """Scan LinkedIn connections, strictly filter for #OpenToWork candidates, enforcing VIP/Client Shields and Business Exclusions."""
     lane.log("\n--- [Two-Edged Sword] Scanning 1st-Degree Connections for #OpenToWork Candidates ---")
     client.call_tool("browser_navigate", {"url": "https://www.linkedin.com/mynetwork/invite-connect/connections/"})
     time.sleep(5)
@@ -352,26 +423,51 @@ def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
 
     sent_data = load_sent_tracker()
 
-    # Extract connection items with name, headline, and profile URL
+    # Extract connection items with precise DOM selectors (avoiding navigation bar junk)
     raw_conns = client._js("""
     (() => {
         const results = [];
-        const links = Array.from(document.querySelectorAll('a[href*="/in/"]'));
-        links.forEach(a => {
-            const rawText = a.innerText.trim();
-            if (!rawText) return;
-            const parts = rawText.split('\\n').map(p => p.trim()).filter(Boolean);
-            if (parts.length >= 2) {
-                const name = parts[0];
-                const headline = parts.slice(1).join(' ');
-                results.push({
-                    name: name,
-                    headline: headline,
-                    profile_url: a.href,
-                    full_text: rawText
-                });
-            }
-        });
+        // Target dedicated connection cards
+        const cards = document.querySelectorAll('li.mn-connection-card, .entity-result__item, div[data-view-name*="connection"]');
+        if (cards.length > 0) {
+            cards.forEach(card => {
+                const nameEl = card.querySelector('.mn-connection-card__name, .entity-result__title-text a, a[href*="/in/"]');
+                const occEl = card.querySelector('.mn-connection-card__occupation, .entity-result__primary-subtitle');
+                const linkEl = card.querySelector('a[href*="/in/"]');
+                const badgeEl = card.querySelector('img[alt*="Open to work"], [aria-label*="Open to work"], .pv-open-to-work-badge');
+                
+                if (nameEl && linkEl) {
+                    const name = nameEl.innerText.trim().split('\\n')[0];
+                    const headline = occEl ? occEl.innerText.trim() : '';
+                    if (name && !name.includes('notifications') && !name.includes('Skip to')) {
+                        results.push({
+                            name: name,
+                            headline: headline,
+                            profile_url: linkEl.href,
+                            has_badge: !!badgeEl
+                        });
+                    }
+                }
+            });
+        }
+        
+        // Fallback to strict /in/ anchors if cards selector is not found
+        if (results.length === 0) {
+            const links = Array.from(document.querySelectorAll('a[href*="/in/"]'));
+            links.forEach(a => {
+                const rawText = a.innerText.trim();
+                if (!rawText || rawText.includes('notifications') || rawText.includes('Skip to')) return;
+                const parts = rawText.split('\\n').map(p => p.trim()).filter(Boolean);
+                if (parts.length >= 2 && !parts[0].includes('notifications')) {
+                    results.push({
+                        name: parts[0],
+                        headline: parts.slice(1).join(' '),
+                        profile_url: a.href,
+                        has_badge: false
+                    });
+                }
+            });
+        }
         return results;
     })()
     """)
@@ -389,32 +485,37 @@ def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
 
     lane.log(f"Parsed {len(dedup)} unique 1st-degree connections.")
 
-    # Apply strict Open To Work filter (Law of Baba: Job seekers only, no business professionals)
     otw_candidates = []
     for c in dedup.values():
         name = c["name"]
         headline = c["headline"]
-        full_text = c.get("full_text", "")
-        combined = f"{name} {headline} {full_text}"
+        url = c["profile_url"]
+        has_badge = c.get("has_badge", False)
 
-        is_otw = bool(OTW_REGEX.search(combined))
-        is_biz = bool(BUSINESS_EXCLUDE_REGEX.search(headline)) and not is_otw
-
-        if is_biz:
-            lane.log(f"  [EXCLUDED BIZ PRO]: {name} | {headline[:60]}")
+        # 1. HARD SHIELD CHECK: Clients, High-Ticket Leads, Personal Network
+        shielded, reason = is_shielded_contact(name, headline, url)
+        if shielded:
+            lane.log(f"  [HARD SHIELD EXCLUDED - CLIENT/VIP]: {name} ({reason})")
             continue
 
+        # 2. BUSINESS & EXECUTIVE CHECK (Absolute Rejection - no override)
+        if BUSINESS_EXCLUDE_REGEX.search(headline):
+            lane.log(f"  [EXCLUDED BIZ PRO / EXEC]: {name} | {headline[:60]}")
+            continue
+
+        # 3. OPEN TO WORK VERIFICATION
+        is_otw = has_badge or bool(OTW_REGEX.search(headline))
         if is_otw:
-            lane.log(f"  [OPEN TO WORK MATCH]: {name} | {headline[:60]}")
+            lane.log(f"  [VERIFIED OPEN TO WORK]: {name} | {headline[:60]}")
             otw_candidates.append(c)
         else:
             lane.log(f"  [SKIPPED NOT OTW]: {name} | {headline[:60]}")
 
     if not otw_candidates:
-        lane.log("No Open To Work candidates identified in visible connection pool.")
+        lane.log("No verified Open To Work candidates identified in visible connection pool.")
         return False
 
-    lane.log(f"\nIdentified {len(otw_candidates)} Open To Work candidates. Checking sent history...")
+    lane.log(f"\nIdentified {len(otw_candidates)} verified Open To Work candidates. Checking sent history...")
     next_candidate = None
     for cand in otw_candidates:
         slug = re.sub(r'[^a-zA-Z0-9]', '_', cand['name'].lower())
@@ -433,6 +534,25 @@ def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
     cand_name = next_candidate["name"]
     cand_headline = next_candidate["headline"]
     profile_url = next_candidate["profile_url"]
+
+    # Final pre-scan shield check
+    shielded, reason = is_shielded_contact(cand_name, cand_headline, profile_url)
+    if shielded:
+        lane.log(f"CRITICAL ABORT: '{cand_name}' is SHIELDED! Reason: {reason}")
+        return False
+
+    if stage_only:
+        lane.log(f"  [STAGE-ONLY MODE]: Staged verified candidate {cand_name} ({profile_url}) without sending.")
+        staged_file = HERE.parent / "evidence" / "employment-lane" / "staged_candidates.json"
+        try:
+            staged = json.loads(staged_file.read_text(encoding="utf-8")) if staged_file.is_file() else []
+        except Exception:
+            staged = []
+        if not any(s.get("profile_url") == profile_url for s in staged):
+            staged.append({"name": cand_name, "headline": cand_headline, "profile_url": profile_url, "staged_at": time.strftime("%Y-%m-%d %H:%M:%S")})
+            staged_file.write_text(json.dumps(staged, indent=2), encoding="utf-8")
+        return True
+
     lane.log(f"\n>>> TARGETING NEXT OPEN TO WORK CANDIDATE: {cand_name} ({profile_url}) <<<")
 
     # 1. Scan Profile Details
@@ -484,6 +604,18 @@ def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
         cand_name = profile_data["name"]
     recipient_id = profile_data.get("recipient_id")
 
+    # Deep Profile Re-Verification Against Shield
+    exp_text = profile_data.get("experience", "")
+    about_text = profile_data.get("about", "")
+    shielded, reason = is_shielded_contact(cand_name, f"{cand_headline} {exp_text} {about_text}", profile_url)
+    if shielded:
+        lane.log(f"CRITICAL ABORT ON PROFILE: '{cand_name}' is SHIELDED! Reason: {reason}")
+        return False
+
+    if BUSINESS_EXCLUDE_REGEX.search(cand_headline) or BUSINESS_EXCLUDE_REGEX.search(exp_text[:100]):
+        lane.log(f"CRITICAL ABORT ON PROFILE: '{cand_name}' matched business/executive role: {cand_headline}")
+        return False
+
     if not recipient_id:
         # Trigger Message button to reveal recipient
         client._js("""
@@ -513,21 +645,9 @@ def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
         return False
 
     # Clean domain summary & extract keywords
-    exp_text = profile_data.get("experience", "")
-    about_text = profile_data.get("about", "")
-    full_profile_text = f"{cand_headline} {about_text} {exp_text}"
-
-    # Strip generic Open To Work tokens from domain summary
     clean_domain = re.sub(r"(?i)\bopen\s*to\s*(work|opportunities)\b", "", cand_headline).strip(" |·•-")
     if not clean_domain or len(clean_domain) < 4:
-        if "immigration" in exp_text.lower() or "overseas" in exp_text.lower():
-            clean_domain = "Overseas Careers, Education Consulting, and Admissions Operations"
-        elif "operations" in exp_text.lower():
-            clean_domain = "Business Operations and Client Services"
-        elif "sales" in exp_text.lower():
-            clean_domain = "Client Relations, Inside Sales, and Business Consulting"
-        else:
-            clean_domain = "Operations, Customer Support, and Client Relations"
+        clean_domain = "Operations, Customer Support, and Client Relations"
 
     # Keywords for job queue matching
     raw_kws = [k.strip() for k in re.split(r"[|•·,/]+", clean_domain) if len(k.strip()) > 2]
@@ -539,7 +659,7 @@ def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
     lane.log(f"Domain Focus: {clean_domain}")
     lane.log(f"Matching Keywords: {keywords}")
 
-    # 2 & 3. Deliver Two-Edged Sword via Nemotron-120B reasoning and Rule 1 receipts
+    # Deliver Two-Edged Sword via Nemotron-120B reasoning and Rule 1 receipts
     return deliver_two_edged_sword_pitch(
         client=client,
         lane=lane,
@@ -550,7 +670,7 @@ def scan_and_pitch_next_connection(client, lane: T.Lane) -> bool:
     )
 
 
-def run_targeted_sweep():
+def run_targeted_sweep(stage_only: bool = False):
     """Run the Two-Edged Sword sweep for prioritised targets and dynamic connections."""
     targets = [
         {
@@ -569,30 +689,36 @@ def run_targeted_sweep():
 
     lane = T.Lane("linkedin", "two_edged_sword")
     with T.session(lane) as client:
-        lane.log("Starting Two-Edged Sword Engine...")
+        lane.log(f"Starting Two-Edged Sword Engine (stage_only={stage_only})...")
         sent_any = False
         sent_data = load_sent_tracker()
 
         # 1. Deliver to any pending priority target
-        for target in targets:
-            if target["recipient_id"] not in sent_data:
-                try:
-                    deliver_two_edged_sword_pitch(
-                        client=client,
-                        lane=lane,
-                        recipient_id=target["recipient_id"],
-                        name=target["name"],
-                        domain_summary=target["domain_summary"],
-                        keywords=target["keywords"]
-                    )
-                    sent_any = True
-                except Exception as exc:
-                    lane.log(f"Error pitching {target['name']}: {exc}")
+        if not stage_only:
+            for target in targets:
+                if target["recipient_id"] not in sent_data:
+                    # Guard shield check
+                    shielded, reason = is_shielded_contact(target["name"], target["domain_summary"])
+                    if shielded:
+                        lane.log(f"Priority target {target['name']} is SHIELDED ({reason}). Skipping.")
+                        continue
+                    try:
+                        deliver_two_edged_sword_pitch(
+                            client=client,
+                            lane=lane,
+                            recipient_id=target["recipient_id"],
+                            name=target["name"],
+                            domain_summary=target["domain_summary"],
+                            keywords=target["keywords"]
+                        )
+                        sent_any = True
+                    except Exception as exc:
+                        lane.log(f"Error pitching {target['name']}: {exc}")
 
-        # 2. If priority targets are done, scan and pitch next 1st-degree connection
+        # 2. If priority targets are done or in stage-only mode, scan connections
         if not sent_any:
             try:
-                scan_and_pitch_next_connection(client, lane)
+                scan_and_pitch_next_connection(client, lane, stage_only=stage_only)
             except Exception as exc:
                 lane.log(f"Error in dynamic connection sweep: {exc}")
 
@@ -605,6 +731,7 @@ def main():
     parser.add_argument("--name", type=str, help="Recipient display name")
     parser.add_argument("--summary", type=str, help="Domain focus summary")
     parser.add_argument("--keywords", type=str, help="Comma-separated keywords for job matching")
+    parser.add_argument("--stage-only", action="store_true", help="Stage discovered candidates without sending DMs")
     args, _ = parser.parse_known_args()
     
     if args.recipient and args.name:
@@ -621,7 +748,8 @@ def main():
             )
             lane.summary()
     else:
-        run_targeted_sweep()
+        run_targeted_sweep(stage_only=args.stage_only)
+
 
 
 if __name__ == "__main__":

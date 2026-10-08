@@ -97,13 +97,14 @@ def execute_cycle(cycle: int, limit_per_round: int = 3):
     except Exception as exc:
         log(f"LinkedIn feed error: {exc}")
 
-    # 6. LinkedIn Two-Edged Sword 1st-Degree Outreach & Magnet
-    log("\n--- [LANE 5/5] LINKEDIN: Two-Edged Sword 1st-Degree Outreach ---")
+    # 6. LinkedIn Two-Edged Sword 1st-Degree Outreach & Magnet (Stage-only in 24/7 daemon)
+    log("\n--- [LANE 5/5] LINKEDIN: Two-Edged Sword Discovery & Stage-Only Verification ---")
     try:
-        sys.argv = ["lane_two_edged_sword.py"]
+        sys.argv = ["lane_two_edged_sword.py", "--stage-only"]
         lane_two_edged_sword.main()
     except Exception as exc:
         log(f"Two-Edged Sword lane error: {exc}")
+
 
     # 7. LinkedIn Inbound Payment & Deliverable Pipeline Listener
     log("\n--- [PAYMENT PIPELINE] LinkedIn Inbound Reply & Deliverable Listener ---")

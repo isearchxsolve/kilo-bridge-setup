@@ -161,3 +161,10 @@ In addition to outbound job applications for the candidate (Lanes 1–4: Naukri,
   2. `two-edge-sent-<candidate_slug>-<timestamp>.png` (message delivered in chat history with checkmark).
 - **Deduplication Ledger**: Recorded in `evidence/employment-lane/two_edged_sword_sent.json`. Never re-message a candidate already in the sent registry.
 
+### 7.5 THE AVEEK HARD BLOCK LAW & VIP SHIELD PROTOCOL (Baba 2026-10-08)
+- **Aveek Sengupta Hard Block**: Aveek Sengupta (TransportLah Singapore, J.P. Morgan, Baba's college mate) is an active high-ticket enterprise client kicking off next week Monday with a ₹3.3 Lakh (SGD 5,250) in-hand kickoff advance.
+- **Zero Automation Rule**: Under NO circumstances may any script, bot, daemon, or crawler send an automated pitch, message, email, or invitation to Aveek. He is hard-coded as an impenetrable block across all tools (`scripts/lane_two_edged_sword.py`, `scripts/lane_payment_pipeline.py`, `scripts/lane5_dynamic_scanner.py`, `scripts/lane_daemon.py`).
+- **VIP & Enterprise Shield**: All high-ticket enterprise leads (Aveek Sengupta, Satyen Sangani, Mathew Joseph Elenjickal, Arayemi Afeez), family, students (Biswajit Bose), and personal contacts are permanently registered in `evidence/employment-lane/shielded_contacts.json`.
+- **Stage-Only Daemon Default**: The 24/7 background daemon (`scripts/lane_daemon.py`) runs Lane 5 in `--stage-only` mode. It NEVER sends autonomous DMs without explicit review and approval.
+
+

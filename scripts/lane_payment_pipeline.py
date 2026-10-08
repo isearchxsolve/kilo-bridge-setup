@@ -186,12 +186,23 @@ def scan_inbox_and_dispatch_payments(client, lane: T.Lane):
         name = th["name"]
         snippet = th["snippet"]
 
+        # AVEEK HARD BLOCK LAW (Baba 2026-10-08: High-ticket client, SGD 5,250 / Rs 3.3L deal)
+        if "aveek" in name.lower() or "sengupta" in name.lower():
+            lane.log("CRITICAL HARD BLOCK: Aveek Sengupta thread detected! Immediate skip.")
+            continue
+
+        # General VIP Shield
+        if any(v in name.lower() for v in ["satyen", "mathew", "arayemi", "biswajit", "prasun", "subham", "partha", "soumyendu", "raktima"]):
+            lane.log(f"SHIELD SKIP: Thread '{name}' is a protected VIP/lead. Skipping payment auto-dispatch.")
+            continue
+
         # Check if candidate was one of our pitched targets
         matched_recipient = None
         for r_id, s_info in sent_data.items():
             if s_info.get("name", "").lower() in name.lower() or name.lower() in s_info.get("name", "").lower():
                 matched_recipient = r_id
                 break
+
 
         if not matched_recipient:
             continue
