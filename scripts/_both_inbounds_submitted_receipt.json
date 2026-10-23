@@ -1,0 +1,22 @@
+{
+  "ishwar_presend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\ishwar-proposal-presend-receipt.png",
+  "ishwar_send_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": true,\n    \"ok\": true,\n    \"text\": \"Send proposal Send proposal\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "ishwar_postsend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\ishwar-proposal-postsend-receipt.png",
+  "arayemi_presend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-reset-presend-receipt.png",
+  "arayemi_send_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": true,\n    \"ok\": true\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "arayemi_postsend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-reset-postsend-receipt.png"
+}

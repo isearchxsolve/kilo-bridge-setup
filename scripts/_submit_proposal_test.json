@@ -1,0 +1,18 @@
+{
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": false,\n    \"total_btns\": 0\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "page": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"body\": \"\",\n    \"url\": \"about:blank\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

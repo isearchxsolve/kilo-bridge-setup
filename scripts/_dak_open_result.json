@@ -1,0 +1,18 @@
+{
+  "click_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": false,\n    \"total_dak\": 0\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "messages": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": [],\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

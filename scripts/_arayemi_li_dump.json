@@ -1,0 +1,417 @@
+{
+  "result": {
+    "elements": [
+      {
+        "attrs": {
+          "class": "msg-conversation-card msg-conversations-container__pillar",
+          "data-feedback-redacted": "",
+          "id": "conversation-card-ember49"
+        },
+        "className": "msg-conversation-card msg-conversations-container__pillar",
+        "id": "conversation-card-ember49",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "entry-point"
+        },
+        "className": "entry-point",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {},
+        "className": "",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-listitem__link msg-conversations-container__convo-item-link\n            msg-conversations-container__convo-item-link--active\n            pl3",
+          "tabindex": "0"
+        },
+        "className": "msg-conversation-listitem__link msg-conversations-container__convo-item-link\n            msg-conversations-container__convo-item-link--active\n            pl3",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-selectable-entity\n        \n        msg-selectable-entity--4"
+        },
+        "className": "msg-selectable-entity\n        \n        msg-selectable-entity--4",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "presence-entity presence-entity--size-4 msg-selectable-entity__entity"
+        },
+        "className": "presence-entity presence-entity--size-4 msg-selectable-entity__entity",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "alt": "ishwar singh",
+          "aria-describedby": "ember51",
+          "class": "presence-entity__image EntityPhoto-circle-4  evi-image lazy-image ember-view",
+          "id": "ember52",
+          "loading": "lazy",
+          "src": "https://media.licdn.com/dms/image/v2/D4D03AQF89ZodA_CdzA/profile-displayphoto-scale_100_100/B4DZ5vdAuCG4Ac-/0/1779986338002?e=1793232000&v=beta&t=_AKCQnn7gkZzV0_Oc6BL0MYheyXZ5gj5MvgfXmEoYgc"
+        },
+        "className": "presence-entity__image EntityPhoto-circle-4  evi-image lazy-image ember-view",
+        "id": "ember52",
+        "tag": "IMG",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "presence-entity__indicator presence-entity__indicator--size-4\n             presence-indicator\n        hidden\n        presence-indicator--size-4",
+          "id": "ember51"
+        },
+        "className": "presence-entity__indicator presence-entity__indicator--size-4\n             presence-indicator\n        hidden\n        presence-indicator--size-4",
+        "id": "ember51",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "visually-hidden"
+        },
+        "className": "visually-hidden",
+        "id": "",
+        "tag": "SPAN",
+        "text": "\n          Status is offline\n              "
+      },
+      {
+        "attrs": {
+          "class": "msg-selectable-entity__checkbox-container"
+        },
+        "className": "msg-selectable-entity__checkbox-container",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "ember-checkbox ember-view msg-selectable-entity__input simple-form",
+          "id": "checkbox-msg-selectable-entity__checkbox-ember50",
+          "type": "checkbox"
+        },
+        "className": "ember-checkbox ember-view msg-selectable-entity__input simple-form",
+        "id": "checkbox-msg-selectable-entity__checkbox-ember50",
+        "tag": "INPUT",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "aria-label": "Select conversation with ishwar singh",
+          "class": "msg-selectable-entity__checkbox-label ml2",
+          "for": "checkbox-msg-selectable-entity__checkbox-ember50"
+        },
+        "className": "msg-selectable-entity__checkbox-label ml2",
+        "id": "",
+        "tag": "LABEL",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-selectable-entity__checkbox-circle-container"
+        },
+        "className": "msg-selectable-entity__checkbox-circle-container",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-selectable-entity__checkbox-circle"
+        },
+        "className": "msg-selectable-entity__checkbox-circle",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__content--selectable"
+        },
+        "className": "msg-conversation-card__content--selectable",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__rows"
+        },
+        "className": "msg-conversation-card__rows",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__row msg-conversation-card__title-row"
+        },
+        "className": "msg-conversation-card__row msg-conversation-card__title-row",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black\n                  t-normal"
+        },
+        "className": "msg-conversation-listitem__participant-names msg-conversation-card__participant-names truncate pr1 t-16 t-black\n                  t-normal",
+        "id": "",
+        "tag": "H3",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "display-flex justify-left align-items-center truncate"
+        },
+        "className": "display-flex justify-left align-items-center truncate",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "truncate"
+        },
+        "className": "truncate",
+        "id": "",
+        "tag": "SPAN",
+        "text": "ishwar singh"
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__mute-icon-holder"
+        },
+        "className": "msg-conversation-card__mute-icon-holder",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-listitem__time-stamp t-14 t-black\n                    t-normal\n                    msg-conversation-card__time-stamp"
+        },
+        "className": "msg-conversation-listitem__time-stamp t-14 t-black\n                    t-normal\n                    msg-conversation-card__time-stamp",
+        "id": "",
+        "tag": "TIME",
+        "text": "6:58 PM"
+      },
+      {
+        "attrs": {
+          "class": "visually-hidden"
+        },
+        "className": "visually-hidden",
+        "id": "",
+        "tag": "SPAN",
+        "text": "6:58 PM"
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__inbox-shortcuts-placeholder"
+        },
+        "className": "msg-conversation-card__inbox-shortcuts-placeholder",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__row msg-conversation-card__body-row"
+        },
+        "className": "msg-conversation-card__row msg-conversation-card__body-row",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__message-snippet-container flex-grow-1"
+        },
+        "className": "msg-conversation-card__message-snippet-container flex-grow-1",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "display-flex align-items-center overflow-hidden t-12 t-bold"
+        },
+        "className": "display-flex align-items-center overflow-hidden t-12 t-bold",
+        "id": "",
+        "tag": "P",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "truncate flex-1"
+        },
+        "className": "truncate flex-1",
+        "id": "",
+        "tag": "SPAN",
+        "text": "Via Services Page"
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__message-snippet\n                    \n                    m0 t-14\n                    "
+        },
+        "className": "msg-conversation-card__message-snippet\n                    \n                    m0 t-14\n                    ",
+        "id": "",
+        "tag": "P",
+        "text": "You: Hi Arayemi, Apologies for the automated test snippet that misfired earlier into this thread from our testing lab. Looking forward to reviewing the role overview and client requirements once you share the JD. Let me know when you have it over and we can assess the mutual alignment. Best regards,Kunal DasDirector & CTOisearch.xsolve@gmail.com"
+      },
+      {
+        "attrs": {
+          "class": "display-flex"
+        },
+        "className": "display-flex",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "aria-label": "Star conversation",
+          "class": "msg-conversation-card__conversation-status msg-conversation-card__star-icon\n                    ",
+          "role": "img"
+        },
+        "className": "msg-conversation-card__conversation-status msg-conversation-card__star-icon\n                    ",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-listitem__active-text visually-hidden"
+        },
+        "className": "msg-conversation-listitem__active-text visually-hidden",
+        "id": "",
+        "tag": "SPAN",
+        "text": ". Active conversation"
+      },
+      {
+        "attrs": {
+          "class": "visually-hidden"
+        },
+        "className": "visually-hidden",
+        "id": "",
+        "tag": "SPAN",
+        "text": ". Press return to go to conversation details"
+      },
+      {
+        "attrs": {
+          "class": "msg-conversation-card__inbox-shortcuts"
+        },
+        "className": "msg-conversation-card__inbox-shortcuts",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "class": "artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view",
+          "id": "ember53"
+        },
+        "className": "artdeco-dropdown msg-thread-actions__dropdown artdeco-dropdown--placement-bottom artdeco-dropdown--justification-right ember-view",
+        "id": "ember53",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "aria-expanded": "false",
+          "class": "msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view",
+          "id": "ember54",
+          "tabindex": "0",
+          "type": "button"
+        },
+        "className": "msg-thread-actions__control artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--muted artdeco-button--tertiary artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view",
+        "id": "ember54",
+        "tag": "BUTTON",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "aria-hidden": "true",
+          "class": "artdeco-button__icon",
+          "data-supported-dps": "16x16",
+          "data-test-icon": "overflow-web-ios-small",
+          "height": "16",
+          "role": "none",
+          "viewBox": "0 0 16 16",
+          "width": "16",
+          "xmlns": "http://www.w3.org/2000/svg"
+        },
+        "className": {},
+        "id": "",
+        "tag": "svg",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "height": "16",
+          "href": "#overflow-web-ios-small",
+          "width": "16"
+        },
+        "className": {},
+        "id": "",
+        "tag": "use"
+      },
+      {
+        "attrs": {
+          "class": "visually-hidden"
+        },
+        "className": "visually-hidden",
+        "id": "",
+        "tag": "SPAN",
+        "text": "Open the options list in your conversation with Kunal Das and ishwar singh"
+      },
+      {
+        "attrs": {
+          "class": "msg-thread-actions__dropdown-container"
+        },
+        "className": "msg-thread-actions__dropdown-container",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "aria-hidden": "true",
+          "class": "msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view",
+          "id": "ember55",
+          "tabindex": "-1"
+        },
+        "className": "msg-thread-actions__dropdown-options--inbox-shortcuts artdeco-dropdown__content artdeco-dropdown--is-dropdown-element artdeco-dropdown__content--has-arrow artdeco-dropdown__content--arrow-right artdeco-dropdown__content--justification-right artdeco-dropdown__content--placement-bottom ember-view",
+        "id": "ember55",
+        "tag": "DIV",
+        "text": ""
+      },
+      {
+        "attrs": {
+          "data-test-msg-cross-pillar-conversation-semaphore-presenter": ""
+        },
+        "className": "",
+        "id": "",
+        "tag": "DIV",
+        "text": ""
+      }
+    ],
+    "ok": true,
+    "total_elements": 42
+  },
+  "method": "debugger"
+}

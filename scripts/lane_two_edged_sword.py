@@ -40,8 +40,51 @@ def load_sent_tracker() -> dict:
 
 
 def save_sent_tracker(data: dict):
+    # MERGE-ON-SAVE (duplicate-DM fix, 2026-10-08): two lane processes both load
+    # the tracker at start; the loser's whole history was clobbered by the
+    # winner's full-file write (proven: Dipti + Subhamay each DMd twice at
+    # 13:48/13:50 vs 13:55/13:56, first-run rows vanished). Reload disk state
+    # and union it with ours so no sent row is EVER lost.
     SENT_TRACKER.parent.mkdir(parents=True, exist_ok=True)
-    SENT_TRACKER.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    merged = load_sent_tracker()
+    merged.update(data)
+    SENT_TRACKER.write_text(json.dumps(merged, indent=2), encoding="utf-8")
+
+
+def release_claim(recipient_id: str, why: str):
+    """Free a CLAIMED row when the send aborted BEFORE any message went out,
+    so the contact is not locked out forever by a failed attempt."""
+    data = load_sent_tracker()
+    rec = data.get(recipient_id)
+    if rec and str(rec.get("sent_at", "")).startswith("CLAIMED-"):
+        rec["sent_at"] = "ABORTED-" + rec["sent_at"][8:] + "-" + why
+        save_sent_tracker(data)
+
+
+def already_messaged(sent_data: dict, recipient_id: str, name: str) -> str:
+    """Dedupe by recipient id OR exact name OR name-slug - any hit = skip."""
+    if recipient_id in sent_data:
+        rec = sent_data[recipient_id]
+        # ABORTED = the send never went out; allow a clean retry.
+        if str(rec.get("sent_at", "")).startswith("ABORTED-"):
+            pass
+        else:
+            return str(rec.get("sent_at") or "unknown-time")
+    want = (name or "").strip().lower()
+    want_slug = re.sub(r'[^a-z0-9]', '', want)
+    if not want:
+        return ""
+    for rec in sent_data.values():
+        # ABORTED rows mean the send never went out - never block a retry.
+        if str(rec.get("sent_at", "")).startswith("ABORTED-"):
+            continue
+        rname = str(rec.get("name", "")).strip().lower()
+        rslug = re.sub(r'[^a-z0-9]', '', rname)
+        if rname and rname == want:
+            return str(rec.get("sent_at") or "unknown-time")
+        if rslug and rslug == want_slug:
+            return str(rec.get("sent_at") or "unknown-time")
+    return ""
 
 
 SHIELD_FILE = HERE.parent / "evidence" / "employment-lane" / "shielded_contacts.json"
@@ -281,10 +324,11 @@ def deliver_two_edged_sword_pitch(client, lane: T.Lane, recipient_id: str, name:
     lane.log(f"TWO-EDGED SWORD TARGET: {name} (Recipient: {recipient_id})")
     lane.log(f"{'='*65}")
     
-    # Check if already messaged
+    # Check if already messaged - by id AND name/slug (duplicate-DM fix).
     sent_data = load_sent_tracker()
-    if recipient_id in sent_data:
-        lane.log(f"Skipping {name} - already sent on {sent_data[recipient_id].get('sent_at')}")
+    prior = already_messaged(sent_data, recipient_id, name)
+    if prior:
+        lane.log(f"Skipping {name} - already sent on {prior}")
         return True
 
     # ABSOLUTE SHIELD GATE: Never send to shielded contacts, leads, or clients
@@ -293,11 +337,28 @@ def deliver_two_edged_sword_pitch(client, lane: T.Lane, recipient_id: str, name:
         lane.log(f"CRITICAL ABORT: Contact '{name}' is a SHIELDED VIP / CLIENT! Reason: {reason}")
         return False
 
+    # CLAIM BEFORE SEND: reserve this recipient in the tracker BEFORE typing a
+    # single character, so a second lane process (or a crash after send and
+    # before save) can never double-DM. Receipts are filled in after the send.
+    sent_data = load_sent_tracker()
+    if already_messaged(sent_data, recipient_id, name):
+        lane.log(f"Skipping {name} - claimed by a concurrent run just now")
+        return True
+    sent_data[recipient_id] = {
+        "name": name,
+        "sent_at": "CLAIMED-" + time.strftime("%Y-%m-%d %H:%M:%S"),
+        "receipt_typed": "pending",
+        "receipt_sent": "pending",
+        "jobs_matched": [],
+    }
+    save_sent_tracker(sent_data)
+
     
     # 1. Match jobs using Nemotron 120B reasoning over candidate profile
     jobs = find_matched_jobs(keywords, candidate_name=name, domain_summary=domain_summary, target_exp=7, limit=3)
     if not jobs:
         lane.log(f"No matching jobs found in local queue for keywords: {keywords}")
+        release_claim(recipient_id, "nojobs")
         return False
     lane.log(f"Matched {len(jobs)} live roles:")
     for j in jobs:
@@ -318,6 +379,7 @@ def deliver_two_edged_sword_pitch(client, lane: T.Lane, recipient_id: str, name:
     if wall:
         lane.log(f"Login/Captcha wall encountered: {wall}")
         lane.row(compose_url, name, "LinkedIn", 0, "compose_navigation", T.BLOCKED, "none", f"wall: {wall}")
+        release_claim(recipient_id, "wall")
         return False
     
     # 4. Inject message using JavaScript DOM manipulation
@@ -369,6 +431,12 @@ def deliver_two_edged_sword_pitch(client, lane: T.Lane, recipient_id: str, name:
     """)
     lane.log(f"Send click result: {send_res}")
     time.sleep(3)
+    # If the button never clicked, NOTHING went out - release the claim so this
+    # human can be contacted again. (ok:false = send_button_not_found/disabled.)
+    if isinstance(send_res, dict) and send_res.get("ok") is False:
+        lane.log(f"SEND FAILED ({send_res}) - releasing claim, nothing was sent")
+        release_claim(recipient_id, "sendfail")
+        return False
     
     # 7. Rule 1 Post-Send Final Receipt
     shot_sent = lane.shot(client, f"two-edge-sent-{slug}-{ts}")
@@ -518,14 +586,11 @@ def scan_and_pitch_next_connection(client, lane: T.Lane, stage_only: bool = Fals
     lane.log(f"\nIdentified {len(otw_candidates)} verified Open To Work candidates. Checking sent history...")
     next_candidate = None
     for cand in otw_candidates:
-        slug = re.sub(r'[^a-zA-Z0-9]', '_', cand['name'].lower())
-        already_sent = any(
-            v.get("name", "").lower() == cand["name"].lower() or slug in str(v)
-            for v in sent_data.values()
-        )
-        if not already_sent:
-            next_candidate = cand
-            break
+        # Name-level dedupe (skip = CLAIMED/SENT; ABORTED rows still eligible).
+        if already_messaged(sent_data, "", cand["name"]):
+            continue
+        next_candidate = cand
+        break
 
     if not next_candidate:
         lane.log("All visible Open To Work candidates have already received the Two-Edged Sword pitch.")
@@ -696,24 +761,26 @@ def run_targeted_sweep(stage_only: bool = False):
         # 1. Deliver to any pending priority target
         if not stage_only:
             for target in targets:
-                if target["recipient_id"] not in sent_data:
-                    # Guard shield check
-                    shielded, reason = is_shielded_contact(target["name"], target["domain_summary"])
-                    if shielded:
-                        lane.log(f"Priority target {target['name']} is SHIELDED ({reason}). Skipping.")
-                        continue
-                    try:
-                        deliver_two_edged_sword_pitch(
-                            client=client,
-                            lane=lane,
-                            recipient_id=target["recipient_id"],
-                            name=target["name"],
-                            domain_summary=target["domain_summary"],
-                            keywords=target["keywords"]
-                        )
-                        sent_any = True
-                    except Exception as exc:
-                        lane.log(f"Error pitching {target['name']}: {exc}")
+                # Name-level dedupe too (id-only missed re-runs with a new id).
+                if already_messaged(sent_data, target["recipient_id"], target["name"]):
+                    continue
+                # Guard shield check
+                shielded, reason = is_shielded_contact(target["name"], target["domain_summary"])
+                if shielded:
+                    lane.log(f"Priority target {target['name']} is SHIELDED ({reason}). Skipping.")
+                    continue
+                try:
+                    deliver_two_edged_sword_pitch(
+                        client=client,
+                        lane=lane,
+                        recipient_id=target["recipient_id"],
+                        name=target["name"],
+                        domain_summary=target["domain_summary"],
+                        keywords=target["keywords"]
+                    )
+                    sent_any = True
+                except Exception as exc:
+                    lane.log(f"Error pitching {target['name']}: {exc}")
 
         # 2. If priority targets are done or in stage-only mode, scan connections
         if not sent_any:

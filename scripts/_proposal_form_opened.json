@@ -1,0 +1,18 @@
+{
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "form": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"form_action\": \"\",\n    \"inputs\": [],\n    \"modal_heading\": \"\",\n    \"modal_text\": \"\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

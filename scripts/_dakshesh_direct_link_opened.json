@@ -1,0 +1,18 @@
+{
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "dakshesh_exact_thread_text": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": \"\",\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

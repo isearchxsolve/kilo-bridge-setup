@@ -1,0 +1,65 @@
+{
+  "dakshesh_pre_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\dakshesh-pre-accept-20261008.png",
+  "dakshesh_accept_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"ok\": true,\n    \"text\": \"Accept\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "dakshesh_accepted_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\dakshesh-post-accept-20261008.png",
+  "dakshesh_open_msg_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"ok\": true,\n    \"text\": \"Message\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "dakshesh_type_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"err\": \"box_not_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "dakshesh_typed_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\dakshesh-typed-20261008.png",
+  "dakshesh_send_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"err\": \"send_btn_disabled_or_not_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "dakshesh_sent_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\dakshesh-sent-receipt-20261008.png",
+  "karan_profile_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\karan-v-profile-pre-20261008.png",
+  "karan_open_msg_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"ok\": true,\n    \"text\": \"Message\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "karan_type_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"err\": \"box_not_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "karan_typed_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\karan-v-typed-20261008.png",
+  "karan_send_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"err\": \"send_btn_disabled_or_not_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "karan_sent_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\karan-v-sent-receipt-20261008.png"
+}

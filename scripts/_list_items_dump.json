@@ -1,0 +1,10 @@
+{
+  "items": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": [],\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

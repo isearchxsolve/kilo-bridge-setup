@@ -1,0 +1,19 @@
+{
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": true,\n    \"text\": \"Karan V\\n6:05 PM\\n6:05 PM\\n\\nKaran: Thank you for sharing the details I appreciate you reaching out and outlining the capabilities and potential areas of collaboration Our Co-Founder & COO, Dakshesh Bhard\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\dakshesh-bhardwaj-live-thread-read.png",
+  "thread_text": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": \"Karan V\\nBusiness Development Manger | Helping Businesses Leverage Web & App Data | Market Research | Competitor Intelligence | Data Analytics & Custom APIs\\nOpen the options list in your conversation with Kunal Das and Karan V\\nWEDNESDAY\\nKaran V sent the following messages at 7:20 PM\\nView Karan\u2019s profile\\nKaran V (He/Him)  7:20 PM\\n\\nHello Kunal ,\\n\\nGlad to connect.\\n\\nI am reaching out from Techdataseeders. Our Co-Founder & COO, Dakshesh Bhardwaj, will be at Cypher 2026 at KTPO, Bengaluru from 7th to 9th October, and we saw that you will be there too.\\n\\nWhy we would like to meet: whatever AI or analytics a company builds, it is only as good as the data behind it. A lot of that data is not inside the company. It is spread across thousands of public websites, apps and online platforms, in different formats, changing every day, and rarely available through a ready API.\\n\\nThat is what we do. Whatever your industry, we build automated pipelines that collect this data from the web and apps and deliver it clean and structured, through Excel, dashboards, API or directly into your AI systems. Once set up, it keeps running without your team having to touch it.\\n\\nFor teams we meet at Cypher, we are offering a free first batch of data, with no commitment. If it is useful, we can talk further. If not, you keep the data.\\n\\nIn 20 minutes, Dakshesh would like to understand what data your team needs, and tell you honestly whether and how we can help.\\n\\nWould you have some time between 7th and 9th October? Just reply with a day and time that suits you\\n\\nLooking forward to connecting\\n\\nThank you!\\n\\nKaran\\n\\nTODAY\\nView Karan\u2019s profile\\nKaran V (He/Him)  12:58 PM\\n\\nHi Kunal ,\\n\\nI hope you are doing well.\\n\\nJust following up regarding Cypher 2026. Our Co-Founder & COO, Dakshesh Bhardwaj, will be at the event on 9th October, and we would be happy to meet you there.\\n\\nWould you be available for a brief meeting on the 9th? Please let me know what time works best for you.\\n\\nLooking forward to connecting.\\n\\nThanks,\\nKaran\\n\\nKunal Das sent the following messages at 1:09 PM\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  1:09 PM\\n\\nHi, Karan\\n\\nWill let you know soon \\n\\nKaran V sent the following message at 1:20 PM\\nView Karan\u2019s profile\\nKaran V (He/Him)  1:20 PM\\n\\nSure, Kunal. Thanks! I\u2019ll look forward to hearing from you\\n\\nKunal Das sent the following messages at 1:27 PM\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  1:27 PM\\n\\n\ud83d\udc4d\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  5:48 PM\\n\\nHi Karan,\\nGlad to connect. I was reviewing Techdataseeders\u2019 work around structuring live web and app data for enterprise market intelligence\u2014it directly intersects with our core engineering.\\n\\nWhile I am operating remotely from Silchar and dialing in from our lab, we have spent the last 8 months building heavy-duty autonomous data extraction and intelligence engines:\\n\\nAutonomous Multi-Portal Extraction: Resilient headless engines that bypass dynamic DOM walls, gate interactive form inputs, and capture real-time feeds 24/7 without human interve\",\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

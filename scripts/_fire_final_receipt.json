@@ -1,0 +1,46 @@
+{
+  "dakshesh": {
+    "lead": "dakshesh",
+    "recipient_id": "ACoAAD35c6YBRnbo43qwpDEo1jIf61FJ-v8KZXs",
+    "inject": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"err\": \"no_box_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    },
+    "pre_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\dakshesh-presend-verified.png",
+    "send": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"err\": \"disabled\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    },
+    "post_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\dakshesh-postsend-receipt.png"
+  },
+  "karan": {
+    "lead": "karan",
+    "recipient_id": "ACoAAGw1MtYBGKvQxM02ZsDp6Kfo0nWboADSSgY",
+    "inject": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"err\": \"no_box_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    },
+    "pre_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\karan-presend-verified.png",
+    "send": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"err\": \"not_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    },
+    "post_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\karan-postsend-receipt.png"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "dakshesh": {
+    "btn": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"ok\": true,\n    \"text\": \"Message\"\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    },
+    "type": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Error: Command timed out after 30000ms: execute_script"
+        }
+      ],
+      "isError": true
+    },
+    "send": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Error: Command timed out after 30000ms: execute_script"
+        }
+      ],
+      "isError": true
+    }
+  },
+  "karan": {
+    "btn": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"ok\": true,\n    \"text\": \"Message\"\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    },
+    "type": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"err\": \"no_box_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    },
+    "send": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"result\": {\n    \"disabled\": \"not_found\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+        }
+      ]
+    }
+  }
+}

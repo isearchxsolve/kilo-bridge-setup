@@ -211,8 +211,12 @@ def scan_inbox_and_dispatch_payments(client, lane: T.Lane):
         is_incoming = not snippet.startswith("You:")
         lane.log(f"Thread: {name} | Incoming: {is_incoming} | Snippet: {snippet[:60]}")
 
-        # If incoming reply or unread
-        if is_incoming or interest_patterns.search(snippet):
+        # NEVER fire on our own outbound messages
+        if not is_incoming:
+            continue
+
+        # If incoming reply matches interest or unread
+        if interest_patterns.search(snippet):
             # Check if payment kit already sent
             client_record = pipeline.get(matched_recipient, {})
             if client_record.get("payment_kit_sent"):

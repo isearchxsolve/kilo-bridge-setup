@@ -1,0 +1,20 @@
+{
+  "search": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"err\": \"no_input\",\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"count\": 20,\n    \"ok\": true,\n    \"text\": \"LinkedIn Member\\n4:21 PM\\n4:21 PM\\n\\nYou: Hi there, Great to have you onboard for the KiloBridge Autonom\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "pane_text": "{\n  \"result\": \"LinkedIn Member\\nOpen the options list in your conversation with Kunal Das and LinkedIn Member\\nYou haven\u2019t connected with LinkedIn Member\\nRequest to connect\\nTODAY\\nKunal Das sent the following messages at 2:56 PM\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  2:56 PM\\n\\nHi Shabnam,\\nSaw your profile and experience across Data Analyst | SQL, Python, Power BI, Excel | B.Tech CSE 2026.\\nI track verified live remote and global hiring pipelines and pulled 3 openings matching your background that you can apply to right now:\\n1. Senior AI Engineer, Agents (Python) (f/m/d) (Remote) - Bliro:https://www.arbeitnow.com/jobs/companies/bliro/senior-ai-engineer-agents-python-munich-63422\\n2. Senior Power BI Developer / BI Engineer (Azure Databricks) (Remote) - Callista Group AG:https://www.arbeitnow.com/jobs/companies/callista-group-ag/senior-power-bi-developer-bi-engineer-azure-databricks-frankfurt-337584\\n3. Senior Python Entwickler* (Remote) - Haeger Consulting GmbH:https://www.arbeitnow.com/jobs/companies/haeger-consulting-gmbh/senior-python-entwickler-bonn-39075\\nIf you'd find this valuable on an ongoing basis, we offer:\u2022 Package 1 (Curated Job Feed): We continuously filter and send high-signal, verified remote roles directly to your inbox/DM.\u2022 Package 2 (Auto-Pilot Applications): Our autonomous engine tracks, gates questions, and applies directly while your machine idles (Rs 499 setup).\\nFeel free to reply here or reach out at isearch.xsolve@gmail.com.\\nBest regards,Kunal\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  4:19 PM\\n\\nHi Shabnam,\\nHappy to run a complimentary deep ATS resume and job-fit scan for you!\\nPlease email your updated Resume (PDF) to isearch.xsolve@gmail.com with subject \\\"Resume Scan - Shabnam parveen\\\".\\nOur engine will analyze your skills against live hiring benchmarks and return a detailed fit breakdown along with tailored remote roles you can target immediately.\\nBest regards,Kunal\\n\\nHi Shabnam,\\nHappy to run a complimentary deep ATS resume and job-fit scan for you!\\nPlease email your updated Resume (PDF) to isearch.xsolve@gmail.com with subject \\\"Resume Scan - Shabnam parveen\\\".\\nOur engine will analyze your skills against live hiring benchmarks and return a detailed fit breakdown along with tailored remote roles you can target immediately.\\nBest regards,Kunal\\n\\nHi Parthiban,\\nHappy to run a complimentary deep ATS resume and job-fit scan for you!\\nPlease email your updated Resume (PDF) to isearch.xsolve@gmail.com with subject \\\"Resume Scan - Parthiban Sengottyian\\\".\\nOur engine will analyze your skills against live hiring benchmarks and return a detailed fit breakdown along with tailored remote roles you can target immediately.\\nBest regards,Kunal\\n\\nHi Parthiban,\\nHappy to run a complimentary deep ATS resume and job-fit scan for you!\\nPlease email your updated Resume (PDF) to isearch.xsolve@gmail.com with subject \\\"Resume Scan - Parthiban Sengottyian\\\".\\nOur engine will analyze your skills against live hiring ben",
+  "shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\karan-v-searched.png"
+}

@@ -1,0 +1,20 @@
+{
+  "pre_click_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\ishwar-pre-submit-click.png",
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": true,\n    \"text\": \"Submit proposal Submit proposal\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "post_click_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\ishwar-proposal-form-live.png",
+  "dom": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"heading\": \"Submit proposal\",\n    \"inputs\": [\n      {\n        \"id\": \"multiline-text-form-component-marketplaceProposalSubmissionFormElementV2-PROPOSAL-DETAILS-marketplaceProject-15214582553-SERVICE-MARKETPLACE\",\n        \"label\": \"Your proposal\",\n        \"name\": \"\",\n        \"placeholder\": \"Let the client know why you\u2019re a good fit for the project here. You can include details about your process, timeline, and budget...\",\n        \"tag\": \"TEXTAREA\",\n        \"type\": \"textarea\"\n      },\n      {\n        \"id\": \"urn:li:fsd_marketplaceProposalSubmissionFormElementV2:(INCLUDE_FREE_CONSULTATION,urn:li:fsd_marketplaceProject:(15214582553,SERVICE_MARKETPLACE))-0\",\n        \"label\": \"\",\n        \"name\": \"urn:li:fsd_marketplaceProposalSubmissionFormElementV2:(INCLUDE_FREE_CONSULTATION,urn:li:fsd_marketplaceProject:(15214582553,SERVICE_MARKETPLACE))\",\n        \"placeholder\": \"\",\n        \"tag\": \"INPUT\",\n        \"type\": \"checkbox\"\n      }\n    ],\n    \"text_snippet\": \"Dialog content start.\\nSubmit proposal\\n\\nBusiness Analytics\\nBusiness Analytics\\n\\nishwar singh \u22c5 10h ago\\nishwar singh \u22c5 10 hours ago\\n\\nWhat type of business analytics services?\\nIdentifying key metrics, Analyzing existing data to make strategic decisions, Other \\n\u2026See more\\nYour proposal\\n\\n100 character minimum\\n0/1,500\\n1500 maximum characters allowed.\\n\\nInclude a phone consultation\\nInclude a phone consultation\\n\\nYour proposal will be sent via Messaging.\\nYour proposal will be sent via Messaging.\\n\\nSend proposal\\nSend proposal\\nDialog content end.\",\n    \"url\": \"https://www.linkedin.com/service-marketplace/provider/requests/\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

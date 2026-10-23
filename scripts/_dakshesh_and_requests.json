@@ -1,0 +1,27 @@
+{
+  "dakshesh_text": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": \"\",\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "requests_link": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"found\": true,\n    \"href\": \"https://www.linkedin.com/service-marketplace/provider/requests/\",\n    \"text\": \"View requests\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "requests_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\client-project-requests-live.png",
+  "requests_page_data": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"body\": \"0 notifications total\\nSkip to search\\nSkip to main content\\nKeyboard shortcuts\\nClose jump menu\\nnew feed updates notifications\\nHome\\nMy Network\\nJobs\\nMessaging\\n1\\n1 new notification\\nNotifications\\nMe\\nFor Business\\nAdvertise\\nKunal Das\u2019s Services\\nKunal Das\u2019s Services\\nAdmin view\\nService page\\nService page\\nRequests\\nRequests\\nClient projects\\nClient projects\\nReviews status\\nReviews status\\nQuestions? Learn more\\nQuestions? Learn more about accessing your LinkedIn Service Page Admin View\\n LinkedIn Corporation \u00a9 2026\\nRequests\\nPremium requests\\n\\nishwar singh\\nishwar singh\\n\\nBusiness Analytics\\nBusiness Analytics\\n\\n10h ago\\n10 hours ago\\n\\nAjinkya Mane\\nAjinkya Mane\\n\\nIT Consulting\\nIT Consulting\\n\\n7h ago\\n7 hours ago\\n\\nSARAVANAPRABHU S\\nSARAVANAPRABHU S\\n\\nWeb Development\\nWeb Development\\n\\n6h ago\\n6 hours ago\\n\\nAmit Saini, PAHM\u00ae\\nAmit Saini, PAHM\u00ae\\n\\nIT Consulting\\nIT Consulting\\n\\n1d ago\\n1 day ago\\n\\nAnshul Yadav\\nAnshul Yadav\\n\\nWeb Design\\nWeb Design\\n\\n1d ago\\n1 day ago\\n\\nPawan Tiwari\\nPawan Tiwari\\n\\nSaaS Development\\nSaaS Development\\n\\n1d ago\\n1 day ago\\n\\nPremkumar Natarajan\\nPremkumar Natarajan\\n\\nCustom Software Development\\nCustom Software Development\\n\\n2d ago\\n2 days ago\\n\\nPrashant Degulmath\\nPrashant Degulmath\\n\\nIT Consulting\\nIT Consulting\\n\\n2d ago\\n2 days ago\\n\\nSatya Goth\\nSatya Goth\\n\\nIT Consulting\\nIT Consulting\\n\\n2d ago\\n2 days ago\\n\\nPriyanshu Chaudhary\\nPriyanshu Chaudhary\\n\\nCustom Software Development\\nCustom Software Development\\n\\n2d ago\\n2 days ago\\n\\nPriyanshu Chaudhary\\nPriyanshu Chaudhary\\n\\nWeb Development\\nWeb Development\\n\\n2d ago\\n2 days ago\\n\\nNadeem Chaudhary\\nNadeem Chaudhary\\n\\nSaaS Development\\nSaaS Development\\n\\n3d ago\\n3 days ago\\n\\nSaksham Gupta\\nSaksham Gupta\\n\\nBusiness Analytics\\nBusiness Analytics\\n\\n3d ago\\n3 days ago\\n\\nSurendra Pandey\\nSurendra Pandey\\n\\nIT Consulting\\nIT Consulting\\n\\n3d ago\\n3 days ago\\n\\nShow more results\\nDirect requests\\nNo direct requests. Requests for your services will appear here when a client reaches out from your service page.\\nBusiness Analytics\\nBusiness Analytics\\n\\nIndia\\n\\n10h ago\\n10 hours ago\\n\\nSubmit proposal\\nSubmit proposal\\nNo thanks\\nNo thanks\\n\\nishwar singh\\nishwar singh\\n\\n \\n3rd\\n\u00b7\u00a03rd\\n\\nAssist manager at Rmc ready mix India ltd\\n\\nAssist manager at Rmc ready mix India ltd\\n\\nProject details\\nProject details\\n\\nWhat type of business analytics services?\\n\\nIdentifying key metrics, Analyzing existing data to make strategic decisions, Other\\n\\nWhat field most closely aligns with your business?\\n\\nConsumer Products\\n\\nWhat is the scope of this project?\\n\\nOn-going\\n\\nWhen do you need this completed by?\\n\\nOther\",\n    \"url\": \"https://www.linkedin.com/service-marketplace/provider/requests/\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

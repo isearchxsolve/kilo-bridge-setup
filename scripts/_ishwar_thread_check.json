@@ -1,0 +1,10 @@
+{
+  "ishwar_thread": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"text\": \"\",\n    \"title\": \"\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

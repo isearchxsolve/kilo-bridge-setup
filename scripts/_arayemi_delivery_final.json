@@ -1,0 +1,38 @@
+{
+  "items_loaded": 20,
+  "initial_inbox_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\inbox-settled-state.png",
+  "click_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": true,\n    \"index\": 7,\n    \"name\": \"Arayemi in list\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "inject_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"box_count\": 1,\n    \"ok\": true\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "presend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-executive-reset-presend.png",
+  "send_res": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": true,\n    \"ok\": true\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "postsend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-executive-reset-postsend.png",
+  "thread_content": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"text\": \"ishwar singh\\nAssist manager at Rmc ready mix India ltd\\nOpen the options list in your conversation with Kunal Das and ishwar singh\\nYou haven\u2019t connected with ishwar singh\\nRequest to connect\\nTODAY\\nKunal Das sent the following messages at 6:45 PM\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  6:45 PM\\n\\nHello ishwar,\\n\\nPlease take a look at my proposal and let me know if you're interested in working with me. I look forward to hearing back from you.\\n\\nThanks,\\nKunal Das\\n\\nBusiness Analytics\\nBusiness Analytics\\n\\nCreated 2h ago\\n\\nView Proposal\\nView Proposal\\n\\nHi Arayemi,\\nApologies for the automated test snippet that misfired earlier into this thread from our testing lab. \\nLooking forward to reviewing the role overview and client requirements once you share the JD. Let me know when you have it over and we can assess the alignment.\\nBest regards,Kunal DasDirector & CTOisearch.xsolve@gmail.com\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  6:48 PM\\n\\nHi Ishwar,\\nPlease disregard the previous snippet\u2014it was routed from another channel. \\nHere is our formal proposal regarding your Business Analytics project for Rmc Ready Mix India:\\nWe specialize in designing deterministic analytics and KPI frameworks that turn complex operational and dispatch data into automated executive decision models.\\nOur Approach for Rmc Ready Mix:1. Metric Architecture: Isolate key dispatch metrics, unit economics, and operational efficiency drivers.2. Data Automation: Unify existing logs and operational reports into a structured, automated reporting pipeline.3. Executive Dashboards: Clean visual tracking and scheduled summaries for ongoing management decisions.\\nScope & Next Step:\u2022 On-going Support / Pilot: \u20b915,000 fixed pilot | \u20b925,000 / month ongoing retainer\u2022 Let's connect for 15 minutes over Google Meet to review your current data format and lock the initial metrics scope.\\nBest regards,Kunal DasDirector & CTOisearch.xsolve@gmail.com\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  6:58 PM\\n\\nHi Arayemi,\\nApologies for the automated test snippet that misfired earlier into this thread from our testing lab. \\nLooking forward to reviewing the role overview and client requirements once you share the JD. Let me know when you have it over and we can assess the mutual alignment.\\nBest regards,Kunal DasDirector & CTOisearch.xsolve@gmail.com\\n\\n\\n\\n\\nMaximize compose field\\nAttach an image to your conversation with ishwar singh\\nAttach a file to your conversation with ishwar singh\\nOpen GIF Keyboard\\nOpen Emoji Keyboard\\nSend\\nOpen send options\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

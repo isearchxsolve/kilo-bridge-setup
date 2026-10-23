@@ -1,0 +1,28 @@
+{
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": false,\n    \"total_items\": 0\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "inject": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "presend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-inbox-presend-verified.png",
+  "send": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"ok\": false\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "postsend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-inbox-postsend-verified.png"
+}

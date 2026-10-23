@@ -1,0 +1,33 @@
+{
+  "verification": {
+    "header": "",
+    "is_arayemi": true,
+    "url": "https://www.linkedin.com/messaging/thread/2-OTA4ZmNkNDQtYzgzMC00Zjg4LWI2OWUtNjM5OGZjZjI4NGE5XzEwMA==/"
+  },
+  "inject": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"box_count\": 1,\n    \"ok\": true,\n    \"text_length\": 348\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "presend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-real-presend-receipt.png",
+  "send": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": true,\n    \"ok\": true,\n    \"text\": \"Send\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "postsend_shot": "C:\\Users\\Admin\\Downloads\\kilo-bridge-setup\\evidence\\employment-lane\\arayemi-real-postsend-receipt.png",
+  "thread_audit": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"has_delivered_reset\": true,\n    \"text\": \"Arayemi Afeez\\nCareer Coach @ ADP | Seasoned Job Recruiter\\nOpen the options list in your conversation with Kunal Das and Arayemi Afeez\\nTODAY\\nArayemi Afeez sent the following message at 4:37 AM\\nView Arayemi\u2019s profile\\nArayemi Afeez   4:37 AM\\n\\nHello Kunal,\\n\\nI'm currently managing a direct placement search for a newly opened role due to an internal promotion. Your background aligns closely with what the client is seeking, and I'd like to explore whether this could be a strong fit. Would you be open to a brief conversation?\\n\\nKunal Das sent the following messages at 4:48 AM\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  4:48 AM\\n\\nHi, Arayemi\\n\\nHow are you?\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  4:50 AM\\n\\nWhere are you?\\n\\nGlad to connect. I work strictly on asynchronous and written lanes, but I would be glad to review the role overview. Please share the JD here or to isearch.xsolve@gmail.com, and I will assess the alignment.\\n\\nArayemi Afeez sent the following message at 4:53 AM\\nView Arayemi\u2019s profile\\nArayemi Afeez   4:53 AM\\n\\nSure\\n\\nKunal Das sent the following messages at 11:12 AM\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  11:12 AM\\n\\nHi Arayemi, apologies if I sounded abrupt earlier. I am very glad to get on a 1-on-1 call with you to discuss the role. Please let me know what day and time works best for you, or feel free to share your calendar link. You can also share the JD here or to isearch.xsolve@gmail.com so I can review it beforehand. Looking forward to speaking!\\n\\nWarm regards,\\nKunal\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  11:16 AM\\n\\nThis message has been deleted.\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  11:17 AM\\n\\nThis message has been deleted.\\n\\nArayemi Afeez sent the following message at 12:39 PM\\nView Arayemi\u2019s profile\\nArayemi Afeez   12:39 PM\\n\\nAlright,\\nWill share the full JD shortly \\n\\nKunal Das sent the following messages at 12:43 PM\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  12:43 PM\\n\\nSure\\n\\nView Kunal\u2019s profile\\nKunal Das  (He/Him)  2:14 PM\\n\\nHi Arayemi,\\nSaw your profile and experience across 0 notifications | Skip to search | Skip to main content | Skip to primary content | Skip t.\\nI track verified live remote and global hiring pipelines and pulled 3 openings matching your background that you can apply to right now:\\n1. R\u00e9ceptionnaire marchandises CDD Octobre 2026 - Soho House Paris H/F (Remote) - Sohohouseco:https://www.arbeitnow.fr/jobs/companies/sohohouseco/receptionnaire-marchandises-cdd-octobre-2026-soho-house-paris-h-f-paris-paris-56056\\n2. Senior Talent Acquisition Specialist - 12 months Fixed-term (Remote) - Audif1:https://www.arbeitnow.ch/jobs/companies/audif1/senior-talent-acquisition-specialist-12-months-fixed-term-hinwil-switzerland-454633\\n3. Managing Director, TULIP GmbH & Commercial Leader, DACH (Remote) - Tulip Interfaces:https://www.arbeitnow.com/jobs/companies/tulip-interfaces/managing-director-tulip-gmbh-commercial-leader-dach-munich-307082\\nIf you'd find this valuable on an ongoing basis, we offer:\u2022 Package 1 (Curated Job Feed): We conti\"\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  }
+}

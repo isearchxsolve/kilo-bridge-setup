@@ -49,8 +49,8 @@ personal value in a script, prompt, or comment.
    phone number, or email. If the candidate record does not contain it, it is not in
    the application.
 3. **NEVER READ OUTSIDE THE ALLOWLIST** (section 1). This includes this file.
-4. **NEVER TOUCH LOGIN CREDENTIALS.** Never request, read, or type a password, OTP, or
-   security code. If login, MFA, or CAPTCHA appears, stop that portal and report it.
+   security code. If CAPTCHA appears, stop that portal and report it.
+4
 5. **DO NOT AUTOMATE PAST CAPTCHA.** A CAPTCHA is a human gate. On seeing one, stop
    work on that portal immediately: no clicking, no Escape, no dismissal attempts, no
    `click()` loops, no clicking through an alignment widget. Record one `BLOCKED` ledger

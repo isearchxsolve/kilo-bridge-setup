@@ -1,0 +1,19 @@
+{
+  "click": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"result\": {\n    \"clicked\": false,\n    \"count\": 0\n  },\n  \"method\": \"debugger\"\n}"
+      }
+    ]
+  },
+  "conversation": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Error: Command timed out after 30000ms: execute_script"
+      }
+    ],
+    "isError": true
+  }
+}
